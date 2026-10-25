@@ -106,11 +106,11 @@ def text_of(fragment):
 
 
 def faq_of(page):
-    """The questions of <div class="limits faq">, each <div><b>question</b><span>answer</span></div>."""
-    block = re.search(r'<div class="limits faq">(.*?)\n\s*</div>\n', page, re.S)
+    """The questions of <div class="faq">, each <details><summary>question</summary><p>answer</p></details>."""
+    block = re.search(r'<div class="faq">(.*?)\n\s*</div>\n', page, re.S)
     if not block:
         sys.exit("no FAQ block on the page")
-    pairs = re.findall(r"<div><b>(.*?)</b><span>(.*?)</span></div>", block.group(1), re.S)
+    pairs = re.findall(r"<details\b[^>]*><summary>(.*?)</summary><p>(.*?)</p></details>", block.group(1), re.S)
     if len(pairs) < 4:
         sys.exit(f"found {len(pairs)} FAQ entries, expected at least 4")
     return [{"@type": "Question", "name": text_of(q),
