@@ -1,0 +1,19 @@
+Sash includes the following open-source components. Each is licensed under the
+Apache License, Version 2.0; its full text is in APACHE-2.0.txt next to this file
+and at https://www.apache.org/licenses/LICENSE-2.0.
+
+Sill (Mac host, protocol, iPhone client) - https://github.com/Saffsanity/sill
+  Copyright 2026 Noah Saffer.
+  Sash for Mac is built from Sill's source with changes made by the Sash
+  developer: the display wakes when a device connects, the app is renamed
+  Sash, Sash's relays, translations and more. Changed and added files are
+  listed in Sash's copy of Sill (SASH-CHANGES.md).
+
+Android Jetpack: Compose, Activity, Core, Lifecycle, CameraX
+  Copyright The Android Open Source Project.
+
+Kotlin standard library, kotlinx.coroutines, kotlinx.serialization
+  Copyright JetBrains s.r.o. and Kotlin Programming Language contributors.
+
+ZXing ("Zebra Crossing") core - https://github.com/zxing/zxing
+  Copyright ZXing authors.

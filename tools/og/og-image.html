@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Source of site/og.png and, opened as og-image.html#en, site/og-en.png: the 1200×630 link previews. Render: tools/og/render.sh -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: "Golos Text"; font-weight: 400 700; src: url(../../site/fonts/golos-text-400-700-cyrillic.woff2) format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Golos Text"; font-weight: 400 700; src: url(../../site/fonts/golos-text-400-700-latin.woff2) format("woff2"); }
+html, body { margin: 0; }
+body {
+  width: 1200px; height: 630px; overflow: hidden; box-sizing: border-box;
+  padding: 72px 80px;
+  background: #E3E9F2; color: #111620;
+  font-family: "Golos Text", sans-serif;
+  display: grid; grid-template-columns: 1fr 360px; gap: 56px; align-items: center;
+}
+.brand { display: flex; align-items: center; gap: 16px; font-weight: 600; font-size: 34px; letter-spacing: -.01em; }
+.brand svg { width: 56px; height: 56px; border-radius: 14px; }
+h1 { margin: 44px 0 0; font-weight: 700; font-size: 84px; line-height: 1.04; letter-spacing: -.035em; }
+.chip { display: inline-block; position: relative; line-height: .9; padding: .04em .14em .08em; margin: 0 -.04em; color: #fff; background: #2B62EE; border-radius: .14em; }
+.chip::before {
+  content: ""; position: absolute; left: .16em; top: -.16em; width: .5em; height: .1em;
+  background:
+    radial-gradient(circle closest-side, #FF5F57 92%, transparent) 0 0 / .1em .1em no-repeat,
+    radial-gradient(circle closest-side, #FEBC2E 92%, transparent) .17em 0 / .1em .1em no-repeat,
+    radial-gradient(circle closest-side, #28C840 92%, transparent) .34em 0 / .1em .1em no-repeat;
+}
+p { margin: 36px 0 0; font-size: 30px; line-height: 1.35; color: #4A5468; }
+.art svg { width: 360px; height: 360px; border-radius: 80px; box-shadow: 0 40px 60px -30px rgba(17, 22, 32, .45); display: block; }
+html:not(.en) .en, html.en .ru { display: none; }
+</style>
+<script>if (location.hash === "#en") { document.documentElement.className = "en"; document.documentElement.lang = "en"; }</script>
+</head>
+<body>
+  <div>
+    <div class="brand">
+      <svg viewBox="0 0 108 108"><path fill="#1C1F26" d="M0,0h108v108h-108z"/><path fill="#3A7BFF" d="M26,28h56a6,6 0,0 1,6 6v34a6,6 0,0 1,-6 6h-56a6,6 0,0 1,-6 -6v-34a6,6 0,0 1,6 -6z"/><path fill="#D8E4FF" d="M24,38h60v30a4,4 0,0 1,-4 4h-52a4,4 0,0 1,-4 -4z"/><circle fill="#FF5F57" cx="29" cy="33" r="2"/><circle fill="#FEBC2E" cx="35" cy="33" r="2"/><circle fill="#28C840" cx="41" cy="33" r="2"/><path fill="#9AA3B5" d="M16,80h76v6h-76z"/></svg>
+      Sash
+    </div>
+    <h1 class="ru"><span class="chip">Окна</span> вашего Mac на&nbsp;Android</h1>
+    <p class="ru">Удалённый доступ к Mac.<br>Бесплатно, без аккаунта.</p>
+    <h1 class="en">Your Mac’s <span class="chip">windows</span> on&nbsp;Android</h1>
+    <p class="en">Remote access to your Mac.<br>Free, no account.</p>
+  </div>
+  <div class="art">
+    <svg viewBox="0 0 108 108"><path fill="#1C1F26" d="M0,0h108v108h-108z"/><path fill="#3A7BFF" d="M26,28h56a6,6 0,0 1,6 6v34a6,6 0,0 1,-6 6h-56a6,6 0,0 1,-6 -6v-34a6,6 0,0 1,6 -6z"/><path fill="#D8E4FF" d="M24,38h60v30a4,4 0,0 1,-4 4h-52a4,4 0,0 1,-4 -4z"/><circle fill="#FF5F57" cx="29" cy="33" r="2"/><circle fill="#FEBC2E" cx="35" cy="33" r="2"/><circle fill="#28C840" cx="41" cy="33" r="2"/><path fill="#9AA3B5" d="M16,80h76v6h-76z"/></svg>
+  </div>
+</body>
+</html>

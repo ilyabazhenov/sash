@@ -1,0 +1,64 @@
+SASH END USER LICENSE AGREEMENT
+Copyright (c) 2026 the Sash developer (github.com/ilyabazhenov). All rights reserved.
+
+Sash for Android and Sash for Mac ("the Software") are proprietary software,
+licensed, not sold. By installing or using the Software you accept these terms.
+
+1. License. You may download, install and use the Software free of charge, for
+   personal or commercial purposes, on any number of your own devices.
+
+2. Restrictions. You may not sell, rent or sublicense the Software, distribute
+   modified copies of it, or remove its copyright and license notices. You may
+   share the unmodified installer files as published at
+   https://github.com/ilyabazhenov/sash/releases or https://usesash.app,
+   free of charge. Except where applicable law expressly allows it, you may not
+   decompile, disassemble or reverse engineer the Software.
+
+3. Third-party components. The Software includes open-source components,
+   listed in THIRD-PARTY-NOTICES.txt, each under its own license. Nothing in
+   this agreement limits your rights under those licenses for those components.
+
+4. Relays. Sash's relay servers are offered as is, may change or stop at any
+   time, and may refuse or limit connections to protect the service.
+
+5. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR
+   PURPOSE AND NON-INFRINGEMENT.
+
+6. Limitation of liability. TO THE EXTENT PERMITTED BY LAW, IN NO EVENT SHALL
+   THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM
+   THE SOFTWARE OR ITS USE.
+
+7. Termination. This license ends automatically if you break its terms; you
+   must then delete the Software.
+
+8. Earlier versions. Sash 1.9 and earlier were released under GPL-3.0. This
+   agreement covers later versions only.
+
+-------------------------------------------------------------------------------
+
+ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ SASH (перевод для удобства; при расхождении действует английский текст)
+
+Sash для Android и Sash для Mac («Программа») — проприетарное ПО, которое
+предоставляется по лицензии, а не продаётся. Устанавливая или используя
+Программу, вы принимаете эти условия.
+
+1. Лицензия. Программу можно бесплатно скачивать, устанавливать и использовать,
+   в личных и коммерческих целях, на любом числе своих устройств.
+2. Ограничения. Нельзя продавать, сдавать в аренду и сублицензировать Программу,
+   распространять её изменённые копии и удалять уведомления об авторских правах.
+   Неизменённые установочные файлы с https://github.com/ilyabazhenov/sash/releases
+   или https://usesash.app можно передавать бесплатно. Кроме случаев, прямо
+   разрешённых законом, нельзя декомпилировать, дизассемблировать и иным образом
+   исследовать устройство Программы.
+3. Сторонние компоненты из THIRD-PARTY-NOTICES.txt действуют на своих лицензиях;
+   это соглашение не ограничивает права по ним.
+4. Релеи Sash работают «как есть», могут измениться или перестать работать в
+   любой момент и могут ограничивать подключения ради защиты сервиса.
+5. Программа предоставляется «как есть», без каких-либо гарантий.
+6. В пределах, допустимых законом, автор не отвечает за ущерб от Программы и её
+   использования.
+7. Лицензия прекращается автоматически при нарушении условий; Программу тогда
+   нужно удалить.
+8. Sash 1.9 и более ранние версии выпущены под GPL-3.0; это соглашение относится
+   только к более поздним версиям.

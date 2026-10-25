@@ -1,0 +1,23 @@
+name: Bug report / Ошибка
+description: Something doesn't work as expected / Что-то работает не так
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / Что случилось?
+      description: What you did, what you expected and what you saw instead.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions / Версии
+      placeholder: Sash 1.10 on Pixel 8 (Android 15); Sash for Mac 1.10 on macOS 26
+    validations:
+      required: true
+  - type: dropdown
+    id: connection
+    attributes:
+      label: Connection / Подключение
+      options: [Home Wi-Fi, VPN (Tailscale etc.), Forwarded port, Other]
