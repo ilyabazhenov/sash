@@ -26,6 +26,8 @@ from pathlib import Path
 
 ORIGIN = "https://usesash.app"
 REPO = "https://github.com/ilyabazhenov/sash"
+# Obtainium's own web redirect: on a phone with Obtainium it opens the app with Sash filled in.
+OBTAINIUM = "https://obtainium.imranr.dev/redirect?r=obtainium://add/" + REPO
 PAGES = {"en": "/releases/", "ru": "/ru/releases/"}
 HOME = {"en": "/", "ru": "/ru/"}
 MONTHS_RU = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа",
@@ -37,7 +39,7 @@ WORDS = {
         "description": "Release notes for Sash, the remote desktop for Mac on Android: every version and what it changed.",
         "apk": "Android APK", "dmg": "Mac DMG", "github": "Install steps and checksums",
         "feed": "Subscribe (Atom)", "home": "Sash home", "latest": "Latest",
-        "feed-title": "What’s new in Sash",
+        "feed-title": "What’s new in Sash", "obtainium": "Add to Obtainium",
         "foot": "Older versions, 1.9 and before, were released under GPL-3.0 and are not listed here.",
     },
     "ru": {
@@ -46,7 +48,7 @@ WORDS = {
         "description": "Заметки к выпускам Sash, удалённого рабочего стола Mac на Android: каждая версия и что в ней изменилось.",
         "apk": "APK для Android", "dmg": "DMG для Mac", "github": "Установка и контрольные суммы",
         "feed": "Подписаться (Atom)", "home": "На главную", "latest": "Последний",
-        "feed-title": "Что нового в Sash", "english": "На английском",
+        "feed-title": "Что нового в Sash", "english": "На английском", "obtainium": "Добавить в Obtainium",
         "foot": "Версии 1.9 и раньше выходили под GPL-3.0 и здесь не перечислены.",
     },
 }
@@ -201,6 +203,8 @@ def page(lang, releases, css, notes_dir):
     for i, r in enumerate(releases):
         version = r["tag_name"].lstrip("v")
         links = [f'<a href="{a}">{w[k]}</a>' for k, a in (("apk", asset(r, ".apk")), ("dmg", asset(r, ".dmg"))) if a]
+        if i == 0:
+            links.append(f'<a href="{OBTAINIUM}">Obtainium</a>')
         links.append(f'<a href="{html.escape(r["html_url"])}">{w["github"]}</a>')
         latest = f' <span class="badge">{w["latest"]}</span>' if i == 0 else ""
         notes, written = notes_in(r, lang, notes_dir)
@@ -258,7 +262,7 @@ def page(lang, releases, css, notes_dir):
 <main class="wrap">
   <h1>{w['title']}</h1>
   <p class="lede">{w['lede']}</p>
-  <p class="meta"><a href="{HOME[lang]}">{w['home']}</a><a href="{feed_url}">{w['feed']}</a></p>
+  <p class="meta"><a href="{HOME[lang]}">{w['home']}</a><a href="{OBTAINIUM}">{w['obtainium']}</a><a href="{feed_url}">{w['feed']}</a></p>
 {chr(10).join(articles)}
   <p class="foot">{w['foot']}</p>
 </main>
