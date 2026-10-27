@@ -5,7 +5,7 @@ name: Pages
 on:
   push:
     branches: [main]
-    paths: [site/**, tools/stamp-release.py, tools/build-site.py, tools/build-releases.py, .github/workflows/pages.yml]
+    paths: [site/**, tools/stamp-release.py, tools/build-site.py, tools/build-releases.py, releases/**, .github/workflows/pages.yml]
   release:
     types: [published]
   workflow_dispatch:
@@ -56,7 +56,7 @@ jobs:
       - name: Build the release notes pages from every release
         run: |
           gh api "repos/$GITHUB_REPOSITORY/releases" --paginate > "$RUNNER_TEMP/releases.json"
-          python3 tools/build-releases.py "$RUNNER_TEMP/releases.json" site _site
+          python3 tools/build-releases.py "$RUNNER_TEMP/releases.json" site _site releases
         env:
           GH_TOKEN: ${{ github.token }}
       - uses: actions/configure-pages@v5
