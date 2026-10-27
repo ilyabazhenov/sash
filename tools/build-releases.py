@@ -39,7 +39,7 @@ WORDS = {
         "description": "Release notes for Sash, the remote desktop for Mac on Android: every version and what it changed.",
         "apk": "Android APK", "dmg": "Mac DMG", "github": "Install steps and checksums",
         "feed": "Subscribe (Atom)", "home": "Sash home", "latest": "Latest",
-        "feed-title": "What’s new in Sash", "obtainium": "Add to Obtainium",
+        "feed-title": "What’s new in Sash", "obtainium": "Auto-updates via Obtainium",
         "foot": "Older versions, 1.9 and before, were released under GPL-3.0 and are not listed here.",
     },
     "ru": {
@@ -48,7 +48,7 @@ WORDS = {
         "description": "Заметки к выпускам Sash, удалённого рабочего стола Mac на Android: каждая версия и что в ней изменилось.",
         "apk": "APK для Android", "dmg": "DMG для Mac", "github": "Установка и контрольные суммы",
         "feed": "Подписаться (Atom)", "home": "На главную", "latest": "Последний",
-        "feed-title": "Что нового в Sash", "english": "На английском", "obtainium": "Добавить в Obtainium",
+        "feed-title": "Что нового в Sash", "english": "На английском", "obtainium": "Автообновления через Obtainium",
         "foot": "Версии 1.9 и раньше выходили под GPL-3.0 и здесь не перечислены.",
     },
 }
@@ -204,7 +204,7 @@ def page(lang, releases, css, notes_dir):
         version = r["tag_name"].lstrip("v")
         links = [f'<a href="{a}">{w[k]}</a>' for k, a in (("apk", asset(r, ".apk")), ("dmg", asset(r, ".dmg"))) if a]
         if i == 0:
-            links.append(f'<a href="{OBTAINIUM}">Obtainium</a>')
+            links.append(f'<a href="{OBTAINIUM}">{w["obtainium"]}</a>')
         links.append(f'<a href="{html.escape(r["html_url"])}">{w["github"]}</a>')
         latest = f' <span class="badge">{w["latest"]}</span>' if i == 0 else ""
         notes, written = notes_in(r, lang, notes_dir)
