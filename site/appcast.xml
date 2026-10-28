@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>Sash for Mac</title>
+    <link>https://usesash.app/</link>
+    <description>Sash.app's updates</description>
+    <language>en</language>
+    <item>
+      <title>Sash 1.14</title>
+      <pubDate>Wed, 28 Oct 2026 08:55:31 +0000</pubDate>
+      <sparkle:version>112</sparkle:version>
+      <sparkle:shortVersionString>1.14</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <description xml:lang="en">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Sash for Mac updates itself.&lt;/b&gt; From now on Sash for Mac checks usesash.app for a new version every few hours, downloads it in the background and installs it once nobody has used Sash for 5 minutes (no device connected, no Sash window open); then it opens again and your devices reconnect. Settings › General shows the last check and has Check Now and the two switches, both on by default. Sash for Mac 1.13 and earlier are updated by hand one last time: download this disk image.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Update the Mac from your phone.&lt;/b&gt; When an update is ready, More on your phone shows "Update Sash on Mac to …": tap it, and the Mac installs it now and the phone reconnects once Sash is back.&lt;/li&gt;&lt;li&gt;&lt;b&gt;The window strip on Android&lt;/b&gt; starts in line with esc, and its tiles scroll to the strip's edges.&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;Update both apps together&lt;/b&gt; for Update Sash on Mac: Sash for Android 1.14 works with Sash for Mac 1.13, but without it.&lt;/p&gt;</description>
+      <description xml:lang="ru">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Sash для Mac обновляется сам.&lt;/b&gt; Теперь Sash для Mac раз в несколько часов проверяет новую версию на usesash.app, скачивает её в фоне и ставит, когда Sash 5 минут никто не пользуется (не подключено ни одно устройство и не открыто ни одно окно Sash); затем он открывается снова, а устройства переподключаются. В «Настройки…» › «Основные» видно время последней проверки, есть «Проверить сейчас» и два переключателя, оба включены по умолчанию. Sash для Mac 1.13 и раньше нужно в последний раз обновить вручную: скачайте этот образ диска.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Обновить Mac с телефона.&lt;/b&gt; Когда обновление готово, в меню «Ещё» на телефоне появляется «Обновить Sash на Mac до …»: нажмите, и Mac поставит его сразу, а телефон переподключится, как только Sash вернётся.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Лента окон на Android&lt;/b&gt; начинается вровень с esc, а плитки прокручиваются до её краёв.&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;Обновите оба приложения&lt;/b&gt; ради «Обновить Sash на Mac»: Sash для Android 1.14 работает с Sash для Mac 1.13, но без этой возможности.&lt;/p&gt;</description>
+      <sparkle:fullReleaseNotesLink xml:lang="en">https://usesash.app/releases/#v1.14</sparkle:fullReleaseNotesLink>
+      <sparkle:fullReleaseNotesLink xml:lang="ru">https://usesash.app/ru/releases/#v1.14</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/ilyabazhenov/sash/releases/download/v1.14/Sash-1.14.dmg" length="4683816" type="application/octet-stream" sparkle:edSignature="E//ii1GLR55d9GG/FwZrS5wyo3SaUfOD4oEyJ5L/AMLk3hXCOrVbkESEP+x5v+EyOZGUVMVhIfaAymqVgrJmAQ==" />
+    </item>
+  </channel>
+</rss>
