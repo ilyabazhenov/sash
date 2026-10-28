@@ -6,6 +6,19 @@
     <description>Sash.app's updates</description>
     <language>en</language>
     <item>
+      <title>Sash 1.15</title>
+      <pubDate>Wed, 28 Oct 2026 10:20:17 +0000</pubDate>
+      <sparkle:version>113</sparkle:version>
+      <sparkle:shortVersionString>1.15</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <description xml:lang="en">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Sash for Mac's first update by itself.&lt;/b&gt; This release only checks that updates work: Sash for Mac 1.14 finds it, downloads it and installs it once nobody has used Sash for 5 minutes. Nothing else changes, on the Mac or on the phone.&lt;/li&gt;&lt;/ul&gt;</description>
+      <description xml:lang="ru">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Первое самообновление Sash для Mac.&lt;/b&gt; Этот выпуск только проверяет, что обновления работают: Sash для Mac 1.14 сам находит его, скачивает и ставит, когда Sash 5 минут никто не пользуется. Больше ничего не меняется ни на Mac, ни на телефоне.&lt;/li&gt;&lt;/ul&gt;</description>
+      <sparkle:fullReleaseNotesLink xml:lang="en">https://usesash.app/releases/#v1.15</sparkle:fullReleaseNotesLink>
+      <sparkle:fullReleaseNotesLink xml:lang="ru">https://usesash.app/ru/releases/#v1.15</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/ilyabazhenov/sash/releases/download/v1.15/Sash-1.15.dmg" length="4683892" type="application/octet-stream" sparkle:edSignature="Si2goxPgeUzM+h0wns75Wd7Ngj03dycztKXjbrQMfs4maOEKsLVYl0e+MVXlo5WhPNr+TUc5Eg7hzkqHmzvdBw==" />
+    </item>
+    <item>
       <title>Sash 1.14</title>
       <pubDate>Wed, 28 Oct 2026 08:55:31 +0000</pubDate>
       <sparkle:version>112</sparkle:version>
