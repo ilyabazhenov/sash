@@ -6,6 +6,19 @@
     <description>Sash.app's updates</description>
     <language>en</language>
     <item>
+      <title>Sash 1.16</title>
+      <pubDate>Fri, 30 Oct 2026 05:03:46 +0000</pubDate>
+      <sparkle:version>116</sparkle:version>
+      <sparkle:shortVersionString>1.16</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <description xml:lang="en">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Voice input.&lt;/b&gt; Click into a text field on the Mac, tap the mic and speak: your phone recognizes the speech and types each finished phrase into that field. The words still being heard show only on the phone; ✓ sends the rest and stops, ✕ drops it. The mic is in Sash's bar, and next to the keyboard bubble after a click into text (on iPhone held upright: More › Voice Input).&lt;/li&gt;&lt;/ul&gt;</description>
+      <description xml:lang="ru">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Голосовой ввод.&lt;/b&gt; Кликните в текстовое поле на Mac, нажмите микрофон и говорите: телефон распознаёт речь и печатает в это поле каждую законченную фразу. Слова, которые ещё распознаются, видны только на телефоне; ✓ отправляет остаток и выключает микрофон, ✕ его отбрасывает. Микрофон есть в панели Sash и рядом с пузырём клавиатуры после клика в текст (на iPhone в вертикальной ориентации: «Ещё» › «Голосовой ввод»).&lt;/li&gt;&lt;/ul&gt;</description>
+      <sparkle:fullReleaseNotesLink xml:lang="en">https://usesash.app/releases/#v1.16</sparkle:fullReleaseNotesLink>
+      <sparkle:fullReleaseNotesLink xml:lang="ru">https://usesash.app/ru/releases/#v1.16</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/ilyabazhenov/sash/releases/download/v1.16/Sash-1.16.dmg" length="4683272" type="application/octet-stream" sparkle:edSignature="3Qw/SnB6ZmH4U8TKvOVunJvJAha5Nk0/8Yn6lF/vna9j986Uz1fZ35wv6a1/N1nkUIhdjcX2bnmvLltURVg8Cw==" />
+    </item>
+    <item>
       <title>Sash 1.15</title>
       <pubDate>Wed, 28 Oct 2026 10:20:17 +0000</pubDate>
       <sparkle:version>113</sparkle:version>
