@@ -6,6 +6,19 @@
     <description>Sash.app's updates</description>
     <language>en</language>
     <item>
+      <title>Sash 1.19</title>
+      <pubDate>Sat, 07 Nov 2026 19:23:33 +0000</pubDate>
+      <sparkle:version>126</sparkle:version>
+      <sparkle:shortVersionString>1.19</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <description xml:lang="en">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Unlocking the Mac.&lt;/b&gt; While the Mac is locked, the window strip shows "Mac is locked: type its password" (on iPhone and iPad, "‹Mac› is locked"). Tap it and the keyboard comes up for the password; type it and press Return.&lt;/li&gt;&lt;/ul&gt;</description>
+      <description xml:lang="ru">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Разблокировка Mac.&lt;/b&gt; Пока Mac заблокирован, в конце полосы окон написано «Mac заблокирован: введите пароль» (на iPhone и iPad — «‹Mac› заблокирован»). Нажмите на эту плашку — откроется клавиатура для пароля; введите его и нажмите Return.&lt;/li&gt;&lt;/ul&gt;</description>
+      <sparkle:fullReleaseNotesLink xml:lang="en">https://usesash.app/releases/#v1.19</sparkle:fullReleaseNotesLink>
+      <sparkle:fullReleaseNotesLink xml:lang="ru">https://usesash.app/ru/releases/#v1.19</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/ilyabazhenov/sash/releases/download/v1.19/Sash-1.19.dmg" length="4697447" type="application/octet-stream" sparkle:edSignature="SF5PLuH0T3lWA8nFwmGnfGGeTb4vE4qx0LAshOCVRUWYHr+HAJqApO6IPQLniRuOBVULMd2qxdOh1LJ6RZ1WBw==" />
+    </item>
+    <item>
       <title>Sash 1.18</title>
       <pubDate>Sat, 07 Nov 2026 12:05:25 +0000</pubDate>
       <sparkle:version>124</sparkle:version>
