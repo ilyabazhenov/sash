@@ -1009,6 +1009,42 @@ h2 { font-size: clamp(1.8rem, 1rem + 2.6vw, 3.25rem); line-height: 1.06; letter-
 .offscreen *, .offscreen *::before, .offscreen *::after { animation-play-state: paused !important; }
 .hash code { font: 400 .75rem/1.6 var(--f-mono); word-break: break-all; color: var(--ink); }
 
+/* More: voice, sound, files, as cells between sash bars */
+.more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--bar); background: var(--line); border-block: var(--bar) solid var(--line); }
+.more article { background: var(--sky); padding: 32px 32px 36px; display: flex; flex-direction: column; gap: 12px; }
+.more article:first-child { padding-left: 0; }
+.more article:last-child { padding-right: 0; }
+.more h3 { font-size: 1.375rem; line-height: 1.2; letter-spacing: -.02em; font-weight: 600; }
+.more p { color: var(--muted); }
+.more .more-where { margin-top: auto; padding-top: 8px; font: 500 .8125rem/1.4 var(--f-mono); color: var(--signal); }
+.more-pic { height: 132px; margin-bottom: 12px; border-radius: 14px; background: var(--deep); padding: 18px; display: flex; flex-direction: column; justify-content: center; gap: 12px; font-size: .875rem; color: var(--ink); }
+.more-pic p { color: var(--ink); }
+.vc { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; background: var(--paper); }
+.vc-mic { flex: none; position: relative; width: 36px; height: 36px; border-radius: 50%; background: var(--sash); box-shadow: inset 0 2px 0 var(--sash-lit); }
+.vc-mic::before { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 0 var(--signal-soft); animation: vc-ring 1.6s ease-out infinite; }
+.vc-mic i { position: absolute; left: 14px; top: 9px; width: 8px; height: 13px; border-radius: 4px; background: var(--on-sash); }
+.vc-mic i::after { content: ""; position: absolute; left: -3px; top: 7px; width: 10px; height: 8px; border: 2px solid var(--on-sash); border-top: 0; border-radius: 0 0 7px 7px; }
+@keyframes vc-ring { to { box-shadow: 0 0 0 12px rgba(255, 178, 30, 0); } }
+.vc-said { flex: 1; min-width: 0; line-height: 1.35; }
+.vc-said em { font-style: normal; color: var(--faint); }
+.vc-ok { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--raised); color: var(--signal); font-weight: 600; }
+.vc-hint { font: 500 .75rem/1.4 var(--f-mono); color: var(--muted) !important; }
+.snd, .fl { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 4px 12px; padding: 12px; border-radius: 12px; background: var(--paper); }
+.snd p, .fl p { display: grid; line-height: 1.35; }
+.snd p span, .fl p span { color: var(--muted); font-size: .8125rem; }
+.snd-eq { width: 36px; height: 36px; border-radius: 9px; background: var(--raised); display: flex; align-items: flex-end; justify-content: center; gap: 2px; padding-bottom: 9px; }
+.snd-eq i { width: 3px; height: 16px; border-radius: 2px; background: var(--signal); transform-origin: bottom; animation: snd-eq 1.1s ease-in-out infinite alternate; }
+.snd-eq i:nth-child(2) { animation-delay: -.4s; }
+.snd-eq i:nth-child(3) { animation-delay: -.8s; }
+.snd-eq i:nth-child(4) { animation-delay: -.2s; }
+.snd-eq i:nth-child(5) { animation-delay: -.6s; }
+@keyframes snd-eq { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+.snd-stop { font-size: .8125rem; font-weight: 600; color: var(--signal); }
+.fl-doc { width: 36px; height: 36px; border-radius: 9px; background: var(--raised); display: grid; place-items: center; font: 500 .625rem/1 var(--f-mono); color: var(--danger); }
+.fl-bar { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--raised); overflow: hidden; }
+.fl-bar i { display: block; height: 100%; width: 64%; border-radius: 2px; background: var(--signal); animation: fl-bar 3.2s ease-in-out infinite; }
+@keyframes fl-bar { from { width: 8%; } 80%, to { width: 100%; } }
+
 /* What's missing */
 .limits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
 .limits li { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; }
@@ -1038,6 +1074,8 @@ h2 { font-size: clamp(1.8rem, 1rem + 2.6vw, 3.25rem); line-height: 1.06; letter-
 @media (max-width: 860px) {
   .pic-grid, .scr-grid, .kb-grid, .away-grid, .sec-grid, .faq-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   .rule-list, .night .rule-list, .limits, .notes3 { grid-template-columns: minmax(0, 1fr); }
+  .more { grid-template-columns: minmax(0, 1fr); }
+  .more article, .more article:first-child, .more article:last-child { padding: 28px 0 32px; }
   .steps4 { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .steps4 li { grid-template-columns: 3.4rem 1fr; column-gap: 14px; }
   .steps4 .nn { grid-row: span 2; font-size: 2.6rem; }
@@ -1057,6 +1095,7 @@ h2 { font-size: clamp(1.8rem, 1rem + 2.6vw, 3.25rem); line-height: 1.06; letter-
   .strip-track { animation: none; }
   .js .rv { opacity: 1; transform: none; }
   .th .eq i, .th .prog::after, .lane.wait .fill { animation: none; }
+  .vc-mic::before, .snd-eq i, .fl-bar i { animation: none; }
 }
 
 
@@ -1194,7 +1233,7 @@ h2 { font-size: clamp(1.8rem, 1rem + 2.6vw, 3.25rem); line-height: 1.06; letter-
       </div>
       <div class="wrap hero-body" id="hero-body">
         <div class="hero-side">
-          <p class="lede"><span class="ru">Sash показывает окна Mac на телефоне, складном или планшете с Android. Управляйте ими касаниями, клавиатурой, мышью или стилусом. Дома по Wi‑Fi, вне дома через Tailscale или другой VPN.</span><span class="en">Sash shows your Mac’s windows on an Android phone, foldable or tablet. Drive them with touch, a keyboard, a mouse or a stylus. Over Wi‑Fi at home, through Tailscale or another VPN when you’re out.</span></p>
+          <p class="lede"><span class="ru">Sash показывает окна Mac на телефоне, складном или планшете с Android. Управляйте ими касаниями, клавиатурой, мышью, стилусом или голосом. Дома по Wi‑Fi, вне дома через Tailscale или другой VPN.</span><span class="en">Sash shows your Mac’s windows on an Android phone, foldable or tablet. Drive them with touch, a keyboard, a mouse, a stylus or your voice. Over Wi‑Fi at home, through Tailscale or another VPN when you’re out.</span></p>
           <div class="ctas">
             <a class="btn primary" data-release="href" href="https://github.com/ilyabazhenov/sash/releases/latest"><span class="ru">Скачать APK</span><span class="en">Download APK</span> <small><span class="ru"><span data-release="size-ru">4,4&nbsp;МБ</span></span><span class="en"><span data-release="size-en">4.4&nbsp;MB</span></span></small></a>
             <a class="btn mac-dl" data-release="mac-href" href="https://github.com/ilyabazhenov/sash/releases/latest/download/Sash-1.10.dmg"><span class="ru">Sash для Mac</span><span class="en">Sash for Mac</span></a>
@@ -1553,6 +1592,56 @@ Already up to date.
     </div>
   </section>
 
+  <!-- More: voice, sound, files -->
+  <section class="scene" id="more" aria-labelledby="more-h">
+    <div class="wrap">
+      <div class="head rv">
+        <p class="eyebrow"><span class="ru">Ещё</span><span class="en">More</span></p>
+        <h2 id="more-h"><span class="ru">Голос, звук и файлы</span><span class="en">Voice, sound and files</span></h2>
+        <p><span class="ru">Говорите вместо того, чтобы печатать, слушайте Mac и передавайте файлы в обе стороны.</span><span class="en">Speak instead of typing, hear the Mac, and pass files both ways.</span></p>
+      </div>
+      <div class="more rv">
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="vc">
+              <span class="vc-mic"><i></i></span>
+              <p class="vc-said"><span class="ru">Перенесём встречу <em>на четверг</em></span><span class="en">Let’s move the meeting <em>to Thursday</em></span></p>
+              <span class="vc-ok">✓</span>
+            </div>
+            <p class="vc-hint"><span class="ru">Говорите — текст напечатается на MacBook Pro</span><span class="en">Speak — it’s typed on MacBook Pro</span></p>
+          </div>
+          <h3><span class="ru">Голосовой ввод</span><span class="en">Voice input</span></h3>
+          <p><span class="ru">Кликните в поле на Mac, нажмите микрофон и говорите: телефон распознаёт речь и печатает в это поле каждую законченную фразу.</span><span class="en">Click into a field on the Mac, tap the mic and speak: your phone recognizes the speech and types each finished phrase into that field.</span></p>
+          <p class="more-where"><span class="ru">Микрофон в панели Sash</span><span class="en">The mic in Sash’s bar</span></p>
+        </article>
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="snd">
+              <span class="snd-eq"><i></i><i></i><i></i><i></i><i></i></span>
+              <p><b><span class="ru">Звук MacBook Pro</span><span class="en">Sound from MacBook Pro</span></b><span><span class="ru">Музыка</span><span class="en">Music</span></span></p>
+              <span class="snd-stop"><span class="ru">Остановить</span><span class="en">Stop</span></span>
+            </div>
+          </div>
+          <h3><span class="ru">Звук Mac на телефоне</span><span class="en">The Mac’s sound on your phone</span></h3>
+          <p><span class="ru">Звук Mac играет на телефоне в такт с картинкой и не смолкает в фоне, а сам Mac на это время молчит. На Mac включите «Устройства слышат этот Mac».</span><span class="en">The Mac’s sound plays on your phone in step with the picture and keeps going in the background, while the Mac itself goes quiet. On the Mac, turn on “Devices can hear this Mac”.</span></p>
+          <p class="more-where"><span class="ru">Ещё › Звук</span><span class="en">More › Sound</span></p>
+        </article>
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="fl">
+              <span class="fl-doc">PDF</span>
+              <p><b><span class="ru">Отчёт.pdf</span><span class="en">Report.pdf</span></b><span><span class="ru">Отправка на MacBook Pro</span><span class="en">Sending to MacBook Pro</span></span></p>
+              <span class="fl-bar"><i></i></span>
+            </div>
+          </div>
+          <h3><span class="ru">Файлы в обе стороны</span><span class="en">Files both ways</span></h3>
+          <p><span class="ru">Отправьте файл с телефона или поделитесь им с Sash из любого приложения: он окажется в «Загрузках» Mac. Скопируйте файлы в Finder, и телефон предложит их сохранить.</span><span class="en">Send a file from your phone, or share it to Sash from any app: it lands in the Mac’s Downloads. Copy files in Finder, and the phone offers to save them.</span></p>
+          <p class="more-where"><span class="ru">Ещё › Отправить файл на Mac…</span><span class="en">More › Send file to Mac…</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Away from home -->
   <section class="scene" id="away" aria-labelledby="away-h">
     <div class="wrap">
@@ -1685,7 +1774,7 @@ Already up to date.
         <details><summary><span class="ru">Подойдёт планшет или складной?</span><span class="en">Does it work on an Android tablet or foldable?</span></summary><p><span class="ru">Да. Sash работает на телефонах, планшетах и складных с Android 10 и новее и меняет раскладку под форму экрана.</span><span class="en">Yes. Sash runs on phones, tablets and foldables with Android 10 or later and fits its layout to the screen’s shape.</span></p></details>
         <details><summary><span class="ru">Есть ли версия для iPhone?</span><span class="en">Is there a version for iPhone?</span></summary><p><span class="ru">Да, скоро: Sash для iPhone и iPad готовится к выходу в App Store, с теми же жестами, панелью окон и доступом через relay, что и на Android. Пока доступна версия для Android.</span><span class="en">Yes, soon: Sash for iPhone and iPad is on its way to the App Store, with the same gestures, window bar and relay access as on Android. For now, the Android version is available.</span></p></details>
         <details><summary><span class="ru">Нужен ли аккаунт?</span><span class="en">Do I need an account?</span></summary><p><span class="ru">Нет. Телефон и Mac сопрягаются напрямую, без регистрации и облачного сервера.</span><span class="en">No. The phone and the Mac pair directly, with no sign‑up and no cloud server.</span></p></details>
-        <details><summary><span class="ru">Что приложение знает обо мне?</span><span class="en">What does the app know about me?</span></summary><p><span class="ru">Ничего о вас не отправляет. В Sash нет аналитики и рекламы; приложения соединяются только с вашим Mac, а Sash для Mac раз в несколько часов проверяет новую версию на usesash.app (это выключается в «Настройки…» › «Основные»). Сайт считает посещения через Cloudflare Web Analytics, без cookie.</span><span class="en">It sends nothing about you. Sash has no analytics and no ads; the apps connect only to your Mac, and Sash for Mac checks usesash.app for a new version every few hours (turn it off in Settings › General). This site counts visits with Cloudflare Web Analytics, without cookies.</span></p></details>
+        <details><summary><span class="ru">Что приложение знает обо мне?</span><span class="en">What does the app know about me?</span></summary><p><span class="ru">Ничего о вас не отправляет. В Sash нет аналитики и рекламы; приложения соединяются только с вашим Mac, кроме голосового ввода: речь распознаёт системный сервис телефона (на Android обычно Google, на iPhone Apple), и он может отправлять её на свои серверы. Sash для Mac раз в несколько часов проверяет новую версию на usesash.app (это выключается в «Настройки…» › «Основные»). Сайт считает посещения через Cloudflare Web Analytics, без cookie.</span><span class="en">It sends nothing about you. Sash has no analytics and no ads; the apps connect only to your Mac, except for voice input: the phone’s own speech service recognizes it (usually Google’s on Android, Apple’s on iPhone) and may send it to its servers. Sash for Mac checks usesash.app for a new version every few hours (turn it off in Settings › General). This site counts visits with Cloudflare Web Analytics, without cookies.</span></p></details>
       </div>
     </div>
   </section>
@@ -2085,7 +2174,7 @@ Already up to date.
   });
 
   /* ---------- Off screen, everything keeps still ---------- */
-  ['hero', 'touch', 'picture', 'screens', 'keyboard', 'windows', 'away', 'security'].forEach(function (id) {
+  ['hero', 'touch', 'picture', 'screens', 'keyboard', 'windows', 'more', 'away', 'security'].forEach(function (id) {
     var el = $(id);
     el.classList.add('offscreen');
     onSeen(el, function (v) { el.classList.toggle('offscreen', !v); }, 0);
