@@ -220,15 +220,14 @@ for lang in PAGES:
 <title>Download Sash {VERSION}</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>
-:root {{ color-scheme: light dark; --bg: #E3E9F2; --ink: #111620; --muted: #4A5468; --signal: #2B62EE; }}
-@media (prefers-color-scheme: dark) {{ :root {{ --bg: #0D1017; --ink: #E6EAF2; --muted: #A3ACBD; --signal: #3A7BFF; }} }}
+:root {{ color-scheme: dark; --bg: #15181D; --ink: #ECEEF2; --muted: #9BA2AE; }}
 body {{ margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--ink);
   font: 400 1.0625rem/1.55 system-ui, -apple-system, Roboto, sans-serif; }}
 main {{ max-width: 26rem; padding: 32px 20px; }}
 h1 {{ font-size: 1.5rem; line-height: 1.25; margin: 0 0 12px; }}
 p {{ margin: 0 0 14px; color: var(--muted); }}
-a.btn {{ display: inline-block; margin: 6px 0 18px; padding: 14px 20px; border-radius: 14px; background: var(--signal);
-  color: #fff; font-weight: 600; text-decoration: none; }}
+a.btn {{ display: inline-block; margin: 6px 0 18px; padding: 14px 20px; border-radius: 14px; background: #F5A30F;
+  box-shadow: inset 0 2px 0 #FFBE3D; color: #15181D; font-weight: 600; text-decoration: none; }}
 a {{ color: inherit; }}
 html:not([lang="ru"]) .ru, html[lang="ru"] .en {{ display: none; }}
 </style>
@@ -264,15 +263,14 @@ html:not([lang="ru"]) .ru, html[lang="ru"] .en {{ display: none; }}
 <title>Page not found · Sash</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
-:root {{ color-scheme: light dark; --bg: #E3E9F2; --ink: #111620; --muted: #4A5468; --signal: #2B62EE; }}
-@media (prefers-color-scheme: dark) {{ :root {{ --bg: #0D1017; --ink: #E6EAF2; --muted: #A3ACBD; --signal: #3A7BFF; }} }}
+:root {{ color-scheme: dark; --bg: #15181D; --ink: #ECEEF2; --muted: #9BA2AE; }}
 body {{ margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--ink);
   font: 400 1.0625rem/1.55 system-ui, -apple-system, Roboto, sans-serif; }}
 main {{ max-width: 26rem; padding: 32px 20px; }}
 h1 {{ font-size: 1.5rem; line-height: 1.25; margin: 0 0 12px; }}
 p {{ margin: 0 0 14px; color: var(--muted); }}
-a.btn {{ display: inline-block; margin: 6px 0 18px; padding: 14px 20px; border-radius: 14px; background: var(--signal);
-  color: #fff; font-weight: 600; text-decoration: none; }}
+a.btn {{ display: inline-block; margin: 6px 0 18px; padding: 14px 20px; border-radius: 14px; background: #F5A30F;
+  box-shadow: inset 0 2px 0 #FFBE3D; color: #15181D; font-weight: 600; text-decoration: none; }}
 a {{ color: inherit; }}
 html:not([lang="ru"]) .ru, html[lang="ru"] .en {{ display: none; }}
 </style>

@@ -159,41 +159,34 @@ body { margin: 0; background: var(--sky); color: var(--ink); font: 400 1rem/1.6 
 a { color: var(--signal); text-underline-offset: .2em; }
 :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 6px; }
 .wrap { width: min(100% - 32px, 720px); margin-inline: auto; }
-.top { position: sticky; top: 0; z-index: 2; height: var(--hdr); background: color-mix(in srgb, var(--sky) 86%, transparent);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.top { position: sticky; top: 0; z-index: 2; height: var(--hdr); background: var(--sky); border-bottom: var(--bar) solid var(--line); }
 .top .wrap { height: 100%; display: flex; align-items: center; gap: 10px; }
 .brand { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); text-decoration: none; margin-right: auto; font-weight: 600; }
-.brand svg { width: 30px; height: 30px; border-radius: 8px; }
-.lang { display: flex; padding: 2px; border: 1px solid var(--line); border-radius: 10px; }
+.brand svg { width: 32px; height: 32px; border-radius: 8px; }
+.lang { display: flex; padding: 2px; background: var(--paper); border-radius: 12px; }
 .lang a { display: grid; place-items: center; min-height: 34px; min-width: 38px; padding: 0 10px; border-radius: 8px;
   color: var(--muted); font-size: .8125rem; font-weight: 600; text-decoration: none; }
-.lang a[aria-current] { background: var(--paper); color: var(--ink); }
-h1 { font-size: clamp(2rem, 6vw, 2.75rem); line-height: 1.1; letter-spacing: -.02em; margin: 56px 0 12px; }
+.lang a[aria-current] { background: var(--raised); color: var(--ink); box-shadow: inset 0 calc(-1 * var(--bar)) 0 var(--signal); }
+h1 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); line-height: 1.1; letter-spacing: -.03em; margin: 56px 0 12px; }
 .lede { color: var(--muted); margin: 0 0 8px; font-size: 1.0625rem; }
 .meta { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0 0 40px; font-size: .9375rem; }
-.release { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 24px clamp(18px, 4vw, 32px); margin: 0 0 20px; scroll-margin-top: calc(var(--hdr) + 16px); }
+.release { background: var(--paper); border-radius: 14px; padding: 24px clamp(18px, 4vw, 32px); margin: 0 0 20px; scroll-margin-top: calc(var(--hdr) + 16px); }
 .release header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 0 0 12px; }
-.release h2 { font-size: 1.5rem; line-height: 1.2; margin: 0; }
+.release h2 { font-size: 1.375rem; line-height: 1.2; letter-spacing: -.02em; margin: 0; }
 .release h2 a { color: inherit; text-decoration: none; }
 .release time { color: var(--muted); font-size: .9375rem; }
 .badge { font: 500 .75rem/1 var(--f-mono); color: var(--signal); background: var(--signal-soft); padding: 5px 8px; border-radius: 6px; }
-.badge.quiet { color: var(--muted); background: none; border: 1px solid var(--line); }
+.badge.quiet { color: var(--muted); background: var(--raised); }
 .release h3 { font-size: 1.0625rem; margin: 20px 0 6px; }
 .release ul, .release ol { padding-left: 1.25em; margin: 0 0 12px; }
 .release li { margin: 0 0 10px; }
 .release p { margin: 0 0 12px; }
 .release code { font: 400 .875em var(--f-mono); background: var(--signal-soft); padding: .1em .35em; border-radius: 5px; overflow-wrap: anywhere; }
-.links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); font-size: .9375rem; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 16px 0 0; padding: 14px 0 0; border-top: var(--bar) solid var(--line); font-size: .9375rem; }
 .foot { color: var(--muted); font-size: .875rem; margin: 40px auto 64px; }
 """
 
-LOGO = """<svg viewBox="0 0 108 108" aria-hidden="true">
-        <path fill="#1C1F26" d="M0,0h108v108h-108z"/>
-        <path fill="#3A7BFF" d="M26,28h56a6,6 0,0 1,6 6v34a6,6 0,0 1,-6 6h-56a6,6 0,0 1,-6 -6v-34a6,6 0,0 1,6 -6z"/>
-        <path fill="#D8E4FF" d="M24,38h60v30a4,4 0,0 1,-4 4h-52a4,4 0,0 1,-4 -4z"/>
-        <circle fill="#FF5F57" cx="29" cy="33" r="2"/><circle fill="#FEBC2E" cx="35" cy="33" r="2"/><circle fill="#28C840" cx="41" cy="33" r="2"/>
-        <path fill="#9AA3B5" d="M16,80h76v6h-76z"/>
-      </svg>"""
+LOGO = """<svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="rel-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#333C7A"/><stop offset="1" stop-color="#121636"/></linearGradient></defs><rect width="100" height="100" fill="url(#rel-sky)"/><g transform="translate(50 50) scale(0.94) translate(-50 -50) translate(0 -5)"><path d="M15 47.5L45 26.5V71.5H15Z" fill="#FFBE3D"/><path d="M45 26.5L63.69 39.583A8 8 0 0 0 62 44.5V71.5H45Z" fill="#F5A30F"/><path d="M13 75.5H62V83.5H13A4 4 0 0 1 13 75.5Z" fill="#C9760A"/><path d="M13 75.5H62V79H9.031A4 4 0 0 1 13 75.5Z" fill="#F09A1C"/><path fill-rule="evenodd" d="M70 39.5H86A5 5 0 0 1 91 44.5V78.5A5 5 0 0 1 86 83.5H70A5 5 0 0 1 65 78.5V44.5A5 5 0 0 1 70 39.5ZM73 43.5H83A2 2 0 0 1 83 47.5H73A2 2 0 0 1 73 43.5Z" fill="#FFEDC2"/><path d="M70 50H86A2.5 2.5 0 0 1 88.5 52.5V78A2.5 2.5 0 0 1 86 80.5H70A2.5 2.5 0 0 1 67.5 78V52.5A2.5 2.5 0 0 1 70 50Z" fill="#F7D488"/></g></svg>"""
 
 
 def page(lang, releases, css, notes_dir):
@@ -234,8 +227,8 @@ def page(lang, releases, css, notes_dir):
 <link rel="alternate" type="application/atom+xml" title="{w['feed-title']}" href="{ORIGIN}{feed_url}">
 <link rel="icon" href="{up}favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{up}apple-touch-icon.png">
-<meta name="theme-color" content="#E3E9F2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0D1017" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#15181D">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sash">
 <meta property="og:url" content="{ORIGIN}{PAGES[lang]}">
@@ -244,7 +237,6 @@ def page(lang, releases, css, notes_dir):
 <meta property="og:image" content="{ORIGIN}/{'og.png' if lang == 'ru' else 'og-en.png'}">
 <style>
 {css.replace('url(fonts/', f'url({up}fonts/')}{STYLE}</style>
-<script>try {{ var t = localStorage.getItem('rm-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); }} catch (e) {{}}</script>
 </head>
 <body>
 <header class="top">

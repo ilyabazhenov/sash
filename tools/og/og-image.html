@@ -10,14 +10,14 @@ html, body { margin: 0; }
 body {
   width: 1200px; height: 630px; overflow: hidden; box-sizing: border-box;
   padding: 72px 80px;
-  background: #E3E9F2; color: #111620;
+  background: #15181D; color: #ECEEF2;
   font-family: "Golos Text", sans-serif;
   display: grid; grid-template-columns: 1fr 360px; gap: 56px; align-items: center;
 }
 .brand { display: flex; align-items: center; gap: 16px; font-weight: 600; font-size: 34px; letter-spacing: -.01em; }
 .brand svg { width: 56px; height: 56px; border-radius: 14px; }
 h1 { margin: 44px 0 0; font-weight: 700; font-size: 84px; line-height: 1.04; letter-spacing: -.035em; }
-.chip { display: inline-block; position: relative; line-height: .9; padding: .04em .14em .08em; margin: 0 -.04em; color: #fff; background: #2B62EE; border-radius: .14em; }
+.chip { display: inline-block; position: relative; line-height: .9; padding: .04em .14em .08em; margin: 0 -.04em; color: #15181D; background: #F5A30F; box-shadow: inset 0 .04em 0 #FFBE3D; border-radius: .14em; }
 .chip::before {
   content: ""; position: absolute; left: .16em; top: -.16em; width: .5em; height: .1em;
   background:
@@ -25,8 +25,8 @@ h1 { margin: 44px 0 0; font-weight: 700; font-size: 84px; line-height: 1.04; let
     radial-gradient(circle closest-side, #FEBC2E 92%, transparent) .17em 0 / .1em .1em no-repeat,
     radial-gradient(circle closest-side, #28C840 92%, transparent) .34em 0 / .1em .1em no-repeat;
 }
-p { margin: 36px 0 0; font-size: 30px; line-height: 1.35; color: #4A5468; }
-.art svg { width: 360px; height: 360px; border-radius: 80px; box-shadow: 0 40px 60px -30px rgba(17, 22, 32, .45); display: block; }
+p { margin: 36px 0 0; font-size: 30px; line-height: 1.35; color: #9BA2AE; }
+.art svg { width: 360px; height: 360px; border-radius: 80px; box-shadow: 0 40px 60px -30px rgba(0, 0, 0, .7), 0 0 0 1px #2C313A; display: block; }
 html:not(.en) .en, html.en .ru { display: none; }
 </style>
 <script>if (location.hash === "#en") { document.documentElement.className = "en"; document.documentElement.lang = "en"; }</script>
@@ -34,7 +34,7 @@ html:not(.en) .en, html.en .ru { display: none; }
 <body>
   <div>
     <div class="brand">
-      <svg viewBox="0 0 108 108"><path fill="#1C1F26" d="M0,0h108v108h-108z"/><path fill="#3A7BFF" d="M26,28h56a6,6 0,0 1,6 6v34a6,6 0,0 1,-6 6h-56a6,6 0,0 1,-6 -6v-34a6,6 0,0 1,6 -6z"/><path fill="#D8E4FF" d="M24,38h60v30a4,4 0,0 1,-4 4h-52a4,4 0,0 1,-4 -4z"/><circle fill="#FF5F57" cx="29" cy="33" r="2"/><circle fill="#FEBC2E" cx="35" cy="33" r="2"/><circle fill="#28C840" cx="41" cy="33" r="2"/><path fill="#9AA3B5" d="M16,80h76v6h-76z"/></svg>
+      <svg viewBox="0 0 100 100"><defs><linearGradient id="sky-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#333C7A"/><stop offset="1" stop-color="#121636"/></linearGradient></defs><rect width="100" height="100" fill="url(#sky-b)"/><g transform="translate(50 50) scale(0.94) translate(-50 -50) translate(0 -5)"><path d="M15 47.5L45 26.5V71.5H15Z" fill="#FFBE3D"/><path d="M45 26.5L63.69 39.583A8 8 0 0 0 62 44.5V71.5H45Z" fill="#F5A30F"/><path d="M13 75.5H62V83.5H13A4 4 0 0 1 13 75.5Z" fill="#C9760A"/><path d="M13 75.5H62V79H9.031A4 4 0 0 1 13 75.5Z" fill="#F09A1C"/><path fill-rule="evenodd" d="M70 39.5H86A5 5 0 0 1 91 44.5V78.5A5 5 0 0 1 86 83.5H70A5 5 0 0 1 65 78.5V44.5A5 5 0 0 1 70 39.5ZM73 43.5H83A2 2 0 0 1 83 47.5H73A2 2 0 0 1 73 43.5Z" fill="#FFEDC2"/><path d="M70 50H86A2.5 2.5 0 0 1 88.5 52.5V78A2.5 2.5 0 0 1 86 80.5H70A2.5 2.5 0 0 1 67.5 78V52.5A2.5 2.5 0 0 1 70 50Z" fill="#F7D488"/></g></svg>
       Sash
     </div>
     <h1 class="ru"><span class="chip">Окна</span> вашего Mac на&nbsp;Android</h1>
@@ -43,7 +43,7 @@ html:not(.en) .en, html.en .ru { display: none; }
     <p class="en">Remote access to your Mac.<br>Free, no account.</p>
   </div>
   <div class="art">
-    <svg viewBox="0 0 108 108"><path fill="#1C1F26" d="M0,0h108v108h-108z"/><path fill="#3A7BFF" d="M26,28h56a6,6 0,0 1,6 6v34a6,6 0,0 1,-6 6h-56a6,6 0,0 1,-6 -6v-34a6,6 0,0 1,6 -6z"/><path fill="#D8E4FF" d="M24,38h60v30a4,4 0,0 1,-4 4h-52a4,4 0,0 1,-4 -4z"/><circle fill="#FF5F57" cx="29" cy="33" r="2"/><circle fill="#FEBC2E" cx="35" cy="33" r="2"/><circle fill="#28C840" cx="41" cy="33" r="2"/><path fill="#9AA3B5" d="M16,80h76v6h-76z"/></svg>
+    <svg viewBox="0 0 100 100"><defs><linearGradient id="sky-l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#333C7A"/><stop offset="1" stop-color="#121636"/></linearGradient></defs><rect width="100" height="100" fill="url(#sky-l)"/><g transform="translate(50 50) scale(0.94) translate(-50 -50) translate(0 -5)"><path d="M15 47.5L45 26.5V71.5H15Z" fill="#FFBE3D"/><path d="M45 26.5L64.51 40.157A7 7 0 0 0 63 44.5V71.5H45Z" fill="#F5A30F"/><path d="M13 75.5H63V83.5H13A4 4 0 0 1 13 75.5Z" fill="#C9760A"/><path d="M13 75.5H63V79H9.031A4 4 0 0 1 13 75.5Z" fill="#F09A1C"/><path fill-rule="evenodd" d="M70 39.5H86A5 5 0 0 1 91 44.5V78.5A5 5 0 0 1 86 83.5H70A5 5 0 0 1 65 78.5V44.5A5 5 0 0 1 70 39.5ZM74.7 43.5H81.3A1.2 1.2 0 0 1 81.3 45.9H74.7A1.2 1.2 0 0 1 74.7 43.5Z" fill="#FFEDC2"/><path d="M70 48H86A2.5 2.5 0 0 1 88.5 50.5V78A2.5 2.5 0 0 1 86 80.5H70A2.5 2.5 0 0 1 67.5 78V50.5A2.5 2.5 0 0 1 70 48Z" fill="#F7D488"/></g></svg>
   </div>
 </body>
 </html>
