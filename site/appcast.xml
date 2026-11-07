@@ -6,6 +6,19 @@
     <description>Sash.app's updates</description>
     <language>en</language>
     <item>
+      <title>Sash 1.17</title>
+      <pubDate>Sat, 07 Nov 2026 09:07:04 +0000</pubDate>
+      <sparkle:version>122</sparkle:version>
+      <sparkle:shortVersionString>1.17</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <description xml:lang="en">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Sash's own look.&lt;/b&gt; Android, iPhone and iPad are now amber on graphite: connecting, the lock, the stream, the settings and voice input. Picture quality is one scale from smoother to sharper.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Your Macs.&lt;/b&gt; The first screen lists each paired Mac once and says how a tap reaches it: over Wi‑Fi here, over the internet when you're away, or not found. Each Mac has its own ⋯ menu to connect, rename it on this device or forget it; the Macs nearby that aren't paired yet are listed below, and + scans or types a new Mac's code.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Sash for Mac&lt;/b&gt; uses an amber accent where your Mac's accent is Multicolor. The pairing window shows the code larger and says where to tap on the phone.&lt;/li&gt;&lt;/ul&gt;</description>
+      <description xml:lang="ru">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Свой облик Sash.&lt;/b&gt; На Android, iPhone и iPad — янтарь на графите: подключение, блокировка, трансляция, настройки и голосовой ввод. Качество картинки — одна шкала от «Экономнее» до «Чётче».&lt;/li&gt;&lt;li&gt;&lt;b&gt;«Ваши Mac».&lt;/b&gt; На первом экране каждый сопряжённый Mac показан один раз, и сказано, как до него дойдёт касание: по Wi‑Fi рядом, через интернет вне дома или «не найден». У каждого Mac своё меню ⋯: подключиться, переименовать на этом устройстве или забыть. Ниже — Mac рядом, которые ещё не сопряжены, а «+» сканирует или принимает код нового Mac.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Sash для Mac&lt;/b&gt; берёт янтарный акцент, если в настройках Mac выбран «Разноцветный». Окно сопряжения показывает код крупнее и подсказывает, куда нажать на телефоне.&lt;/li&gt;&lt;/ul&gt;</description>
+      <sparkle:fullReleaseNotesLink xml:lang="en">https://usesash.app/releases/#v1.17</sparkle:fullReleaseNotesLink>
+      <sparkle:fullReleaseNotesLink xml:lang="ru">https://usesash.app/ru/releases/#v1.17</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/ilyabazhenov/sash/releases/download/v1.17/Sash-1.17.dmg" length="4697354" type="application/octet-stream" sparkle:edSignature="6vLp6QUgnhvY7s/XHL2ip2x9RKvvl0INSDQ1MNMsGKzHwYkPhvM0E0uXMjY9y3HR3ZtDyLQSLq64gq0QNuuXAQ==" />
+    </item>
+    <item>
       <title>Sash 1.16</title>
       <pubDate>Fri, 30 Oct 2026 05:03:46 +0000</pubDate>
       <sparkle:version>116</sparkle:version>
