@@ -6,6 +6,19 @@
     <description>Sash.app's updates</description>
     <language>en</language>
     <item>
+      <title>Sash 1.18</title>
+      <pubDate>Sat, 07 Nov 2026 12:05:25 +0000</pubDate>
+      <sparkle:version>124</sparkle:version>
+      <sparkle:shortVersionString>1.18</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <description xml:lang="en">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Return while dictating.&lt;/b&gt; Voice input has a ⏎ button between ✕ and ✓: it sends the phrase you're saying and presses Return on the Mac, and the microphone stays on, so you can dictate the next message to a chat or the next command to the Terminal right away.&lt;/li&gt;&lt;/ul&gt;</description>
+      <description xml:lang="ru">&lt;ul&gt;&lt;li&gt;&lt;b&gt;Return при диктовке.&lt;/b&gt; В голосовом вводе появилась кнопка ⏎ между ✕ и ✓: она отправляет сказанную фразу и нажимает Return на Mac, а микрофон остаётся включённым. Можно сразу диктовать следующее сообщение в чат или следующую команду в Терминал.&lt;/li&gt;&lt;/ul&gt;</description>
+      <sparkle:fullReleaseNotesLink xml:lang="en">https://usesash.app/releases/#v1.18</sparkle:fullReleaseNotesLink>
+      <sparkle:fullReleaseNotesLink xml:lang="ru">https://usesash.app/ru/releases/#v1.18</sparkle:fullReleaseNotesLink>
+      <enclosure url="https://github.com/ilyabazhenov/sash/releases/download/v1.18/Sash-1.18.dmg" length="4697475" type="application/octet-stream" sparkle:edSignature="2uLW1nVuc1sCk/DLaE7Cu2UD2Mjp9bgAxG/pMvj3VI7xX081K/SaKcKgvChK5scjsSzy/a4+mPzSyICzich3DQ==" />
+    </item>
+    <item>
       <title>Sash 1.17</title>
       <pubDate>Sat, 07 Nov 2026 09:07:04 +0000</pubDate>
       <sparkle:version>122</sparkle:version>
