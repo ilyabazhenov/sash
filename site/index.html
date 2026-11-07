@@ -1233,7 +1233,7 @@ h2 { font-size: clamp(1.8rem, 1rem + 2.6vw, 3.25rem); line-height: 1.06; letter-
       </div>
       <div class="wrap hero-body" id="hero-body">
         <div class="hero-side">
-          <p class="lede"><span class="ru">Sash показывает окна Mac на телефоне, складном или планшете с Android. Управляйте ими касаниями, клавиатурой, мышью, стилусом или голосом. Дома по Wi‑Fi, вне дома через Tailscale или другой VPN.</span><span class="en">Sash shows your Mac’s windows on an Android phone, foldable or tablet. Drive them with touch, a keyboard, a mouse, a stylus or your voice. Over Wi‑Fi at home, through Tailscale or another VPN when you’re out.</span></p>
+          <p class="lede"><span class="ru">Sash показывает окна Mac на телефоне, складном или планшете с Android. Управляйте ими касаниями, клавиатурой, мышью, стилусом или голосом. Дома по Wi‑Fi, вне дома через relay Sash или ваш VPN.</span><span class="en">Sash shows your Mac’s windows on an Android phone, foldable or tablet. Drive them with touch, a keyboard, a mouse, a stylus or your voice. Over Wi‑Fi at home, through Sash’s relay or your own VPN when you’re out.</span></p>
           <div class="ctas">
             <a class="btn primary" data-release="href" href="https://github.com/ilyabazhenov/sash/releases/latest"><span class="ru">Скачать APK</span><span class="en">Download APK</span> <small><span class="ru"><span data-release="size-ru">4,4&nbsp;МБ</span></span><span class="en"><span data-release="size-en">4.4&nbsp;MB</span></span></small></a>
             <a class="btn mac-dl" data-release="mac-href" href="https://github.com/ilyabazhenov/sash/releases/latest/download/Sash-1.10.dmg"><span class="ru">Sash для Mac</span><span class="en">Sash for Mac</span></a>
@@ -1652,9 +1652,9 @@ Already up to date.
       </div>
       <div class="away-grid">
         <div class="away-prose rv">
-          <p><span class="ru">Mac остаётся дома, телефон едет с вами. Включите удалённый доступ (Remote Access) в Sash на Mac. Дальше подойдёт Tailscale или другой VPN на обоих устройствах либо проброшенный порт на роутере. Mac появится в разделе «Вне дома».</span><span class="en">The Mac stays home, the phone goes with you. Turn on Remote Access in Sash on the Mac. Then use Tailscale or another VPN on both devices, or a forwarded port on your router. The Mac shows up under “Away from home”.</span></p>
+          <p><span class="ru">Mac остаётся дома, телефон едет с вами. Включите в Sash на Mac «Удалённый доступ» и «Подключаться через relay Sash», и телефон дойдёт до Mac по мобильной сети: без VPN, белого IP и настройки роутера. Есть Tailscale, другой VPN или проброшенный порт — Sash возьмёт путь короче.</span><span class="en">The Mac stays home, the phone goes with you. In Sash on the Mac, turn on Remote Access and “Connect through Sash relays”, and the phone reaches the Mac over mobile data: no VPN, no public IP, no router settings. Have Tailscale, another VPN or a forwarded port? Sash takes the shorter way.</span></p>
           <p class="tls"><span class="ru">TLS 1.3 · ключи обеих сторон запинены</span><span class="en">TLS 1.3 · both keys pinned</span></p>
-          <p><span class="ru">Изображение, ввод и буфер обмена идут внутри TLS напрямую между телефоном и Mac. Адреса Mac приходят в подписанном сообщении.</span><span class="en">Picture, input and clipboard travel inside TLS straight between the phone and the Mac. The Mac’s addresses arrive in a signed message.</span></p>
+          <p><span class="ru">Изображение, ввод и буфер обмена идут внутри TLS между телефоном и Mac. Relay только передаёт зашифрованный сеанс: прочитать или изменить его он не может, но видит адреса и объём трафика. Сопрягаются телефон и Mac только дома.</span><span class="en">Picture, input and clipboard travel inside TLS between the phone and the Mac. The relay only passes the encrypted session on: it can’t read or change it, but it sees addresses and how much passes. The phone and the Mac pair only at home.</span></p>
         </div>
         <div class="race rv" id="race">
           <div class="race-top">
@@ -1664,11 +1664,11 @@ Already up to date.
           <div class="ends"><div><b>Sash</b><span class="ru">ваш телефон</span><span class="en">your phone</span></div><div><b><span class="ru">Sash для Mac</span><span class="en">Sash for Mac</span></b>Remote Access</div></div>
           <div id="lanes">
             <div class="lane"><span class="addr">192.168.1.20 <small><span class="ru">· Wi‑Fi дома</span><span class="en">· home Wi‑Fi</span></small></span><span class="res"></span><span class="track"><span class="fill"></span></span></div>
-            <div class="lane"><span class="addr">100.101.102.103 <small>· Tailscale</small></span><span class="res"></span><span class="track"><span class="fill"></span></span></div>
             <div class="lane"><span class="addr">2001:db8::20 <small>· IPv6</small></span><span class="res"></span><span class="track"><span class="fill"></span></span></div>
             <div class="lane"><span class="addr">203.0.113.7 <small><span class="ru">· порт на роутере</span><span class="en">· router port</span></small></span><span class="res"></span><span class="track"><span class="fill"></span></span></div>
+            <div class="lane"><span class="addr">relay Sash <small><span class="ru">· через интернет</span><span class="en">· over the internet</span></small></span><span class="res"></span><span class="track"><span class="fill"></span></span></div>
           </div>
-          <p class="tunnel" id="tunnel"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span id="tunnel-text"><span class="ru">Соединение через Tailscale · TLS 1.3</span><span class="en">Connected through Tailscale · TLS 1.3</span></span></p>
+          <p class="tunnel" id="tunnel"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span id="tunnel-text"><span class="ru">Соединение через relay Sash · TLS 1.3</span><span class="en">Connected through Sash’s relay · TLS 1.3</span></span></p>
           <p style="margin-top: 14px"><button type="button" class="ghost-btn" id="race-again"><span class="ru">↻ Ещё раз</span><span class="en">↻ Again</span></button></p>
         </div>
       </div>
@@ -1701,6 +1701,8 @@ Already up to date.
         <li><span class="n">04</span><b><span class="ru">Подписанные адреса</span><span class="en">Signed addresses</span></b><span><span class="ru">Адреса Mac для подключения издалека подписаны его ключом.</span><span class="en">The Mac’s addresses for remote access are signed with its key.</span></span></li>
         <li><span class="n">05</span><b><span class="ru">Только сопряжённые</span><span class="en">Paired devices only</span></b><span><span class="ru">Удалите телефон в Sash на Mac, и его сеансы сразу оборвутся.</span><span class="en">Remove the phone in Sash on the Mac and its sessions end at once.</span></span></li>
         <li><span class="n">06</span><b><span class="ru">Блокировка приложения</span><span class="en">App lock</span></b><span><span class="ru">Отпечаток, лицо или PIN при открытии.</span><span class="en">Fingerprint, face or PIN when it opens.</span></span></li>
+        <li><span class="n">07</span><b><span class="ru">Заблокированный Mac</span><span class="en">A locked Mac</span></b><span><span class="ru">Пока Mac заблокирован, телефон видит только экран блокировки: ни окон, ни меню, ни буфера. Пароль можно ввести с телефона.</span><span class="en">While the Mac is locked, the phone sees only its lock screen: no windows, menus or clipboard. Type the password from the phone.</span></span></li>
+        <li><span class="n">08</span><b><span class="ru">Relay вслепую</span><span class="en">A blind relay</span></b><span><span class="ru">Relay Sash передаёт зашифрованный сеанс и не может его прочитать или изменить.</span><span class="en">Sash’s relay passes the encrypted session on and can’t read or change it.</span></span></li>
       </ul>
     </div>
   </section>
@@ -1717,7 +1719,7 @@ Already up to date.
         <li><span class="nn">1</span><b>Mac</b><p><span class="ru">Скачайте Sash для Mac (Sash.dmg), перетащите Sash в «Программы», откройте и выдайте разрешения Screen Recording и Accessibility. Sash для Mac будит дисплей, когда подключается телефон.</span><span class="en">Download Sash for Mac (Sash.dmg), drag Sash to Applications, open it and grant Screen Recording and Accessibility. Sash for Mac wakes the display when your phone connects.</span></p></li>
         <li><span class="nn">2</span><b><span class="ru">Телефон</span><span class="en">Phone</span></b><p><span class="ru">Установите APK, подключитесь к той же Wi‑Fi сети и откройте Sash.</span><span class="en">Install the APK, join the same Wi‑Fi network and open Sash.</span></p></li>
         <li><span class="nn">3</span><b><span class="ru">Сопряжение</span><span class="en">Pairing</span></b><p><span class="ru">Коснитесь своего Mac. Он покажет QR-код и 12 цифр: отсканируйте код или введите цифры.</span><span class="en">Tap your Mac. It shows a QR code and 12 digits: scan the code or type the digits.</span></p></li>
-        <li class="opt"><span class="nn">4</span><b><span class="ru">Вне дома</span><span class="en">Away from home</span><em><span class="ru">по желанию</span><span class="en">optional</span></em></b><p><span class="ru">Включите Remote Access в настройках Sash на Mac, затем Tailscale или другой VPN.</span><span class="en">Turn on Remote Access in Sash’s settings on the Mac, then add Tailscale or another VPN.</span></p></li>
+        <li class="opt"><span class="nn">4</span><b><span class="ru">Вне дома</span><span class="en">Away from home</span><em><span class="ru">по желанию</span><span class="en">optional</span></em></b><p><span class="ru">Включите в Sash на Mac «Удалённый доступ» и «Подключаться через relay Sash». VPN не нужен.</span><span class="en">In Sash on the Mac, turn on Remote Access and “Connect through Sash relays”. No VPN needed.</span></p></li>
       </ol>
 
       <div class="dl rv" id="get">
@@ -1769,7 +1771,7 @@ Already up to date.
       <div class="faq">
         <details open><summary><span class="ru">Сколько это стоит?</span><span class="en">What does it cost?</span></summary><p><span class="ru">Ничего. Sash для Android и Sash для Mac бесплатны.</span><span class="en">Nothing. Sash for Android and Sash for Mac are free.</span></p></details>
         <details><summary><span class="ru">Какой нужен Mac?</span><span class="en">Which Mac do I need?</span></summary><p><span class="ru">Mac на Apple silicon с macOS 14 или новее. На macOS 15 и новее Sash попросит ещё доступ к локальной сети.</span><span class="en">A Mac with Apple silicon on macOS 14 or later. On macOS 15 or later, Sash also asks for Local Network access.</span></p></details>
-        <details><summary><span class="ru">Работает ли вне дома?</span><span class="en">Does it work away from home?</span></summary><p><span class="ru">Да. Включите Remote Access на Mac и подключайтесь через Tailscale или другой VPN либо через проброшенный порт на роутере. Сопрягаются телефон и Mac один раз, дома.</span><span class="en">Yes. Turn on Remote Access on the Mac and connect through Tailscale or another VPN, or a forwarded port on your router. The phone and the Mac pair once, at home.</span></p></details>
+        <details><summary><span class="ru">Работает ли вне дома?</span><span class="en">Does it work away from home?</span></summary><p><span class="ru">Да. Включите в Sash на Mac «Удалённый доступ» и «Подключаться через relay Sash»: телефон дойдёт до Mac по мобильной сети, без VPN и настройки роутера. Tailscale, другой VPN или проброшенный порт тоже подойдут. Сопрягаются телефон и Mac один раз, дома.</span><span class="en">Yes. In Sash on the Mac, turn on Remote Access and “Connect through Sash relays”: the phone reaches the Mac over mobile data, with no VPN and no router settings. Tailscale, another VPN or a forwarded port work too. The phone and the Mac pair once, at home.</span></p></details>
         <details><summary><span class="ru">Чем это отличается от VNC и Chrome Remote Desktop?</span><span class="en">How is it different from VNC or Chrome Remote Desktop?</span></summary><p><span class="ru">Sash показывает отдельное окно Mac, подогнанное под экран телефона, или весь рабочий стол. Видео идёт в HEVC до 120 к/с и раскрывается аппаратным декодером. Аккаунт Google или другой не нужен.</span><span class="en">Sash shows a single Mac window fitted to your phone’s screen, or the whole desktop. The video is HEVC at up to 120 fps, decoded in hardware. There’s no Google or other account.</span></p></details>
         <details><summary><span class="ru">Подойдёт планшет или складной?</span><span class="en">Does it work on an Android tablet or foldable?</span></summary><p><span class="ru">Да. Sash работает на телефонах, планшетах и складных с Android 10 и новее и меняет раскладку под форму экрана.</span><span class="en">Yes. Sash runs on phones, tablets and foldables with Android 10 or later and fits its layout to the screen’s shape.</span></p></details>
         <details><summary><span class="ru">Есть ли версия для iPhone?</span><span class="en">Is there a version for iPhone?</span></summary><p><span class="ru">Да, скоро: Sash для iPhone и iPad готовится к выходу в App Store, с теми же жестами, панелью окон и доступом через relay, что и на Android. Пока доступна версия для Android.</span><span class="en">Yes, soon: Sash for iPhone and iPad is on its way to the App Store, with the same gestures, window bar and relay access as on Android. For now, the Android version is available.</span></p></details>
@@ -2193,10 +2195,10 @@ Already up to date.
 
   /* ---------- Away from home ---------- */
   var SCEN = {
-    away: [{ start: 0 }, { start: 1, answer: 1.34 }, { start: 2 }, { start: 3 }],
+    away: [{ start: 0 }, { start: 1 }, { start: 2 }, { start: 3, answer: 3.22 }],
     home: [{ start: 0, answer: .03 }, { start: 1 }, { start: 2 }, { start: 3 }]
   };
-  var KIND = { ru: ['Wi‑Fi дома', 'Tailscale', 'IPv6', 'порт на роутере'], en: ['home Wi‑Fi', 'Tailscale', 'IPv6', 'a router port'] };
+  var KIND = { ru: ['Wi‑Fi дома', 'IPv6', 'порт на роутере', 'relay Sash'], en: ['home Wi‑Fi', 'IPv6', 'a router port', 'Sash’s relay'] };
   var lanes = Array.prototype.slice.call(document.querySelectorAll('#lanes .lane'));
   var where = 'away', raceRaf = 0;
   function fmt(t) { return L(t.toFixed(2).replace('.', ','), t.toFixed(2)); }
