@@ -6,7 +6,9 @@ site/index.html holds both languages, every phrase as <span class="ru"> and
 want one language per URL, so this writes the English page to / and the Russian
 one to /ru/, each with only its own text, its own head (the data-en values of
 site/index.html), hreflang links between them, a link as the language switch and
-the app's structured data. Then /get/, where the page's QR code points: it starts
+the app's structured data. Each page about one use of Sash (GUIDES) is built the
+same way from its own source, with the main page's styles put in place of its
+"<!-- styles of index.html -->". Then /get/, where the page's QR code points: it starts
 the latest APK's download on the phone. And a 404 page, robots.txt and sitemap.xml.
 
 Usage: build-site.py site _site   (after stamp-release.py, so the version is current)
@@ -22,6 +24,8 @@ from pathlib import Path
 
 ORIGIN = "https://usesash.app"
 PAGES = {"en": "/", "ru": "/ru/"}
+# Pages about one use of Sash: each source in site/ and where its two languages go
+GUIDES = {"claude-code/index.html": {"en": "/claude-code/", "ru": "/ru/claude-code/"}}
 LANGS = {"ru": "Русский", "en": "English"}
 
 src, out = Path(sys.argv[1]), Path(sys.argv[2])
@@ -77,12 +81,12 @@ def head_for(page, lang):
     return re.sub(r"<!-- The English page is built[^>]*-->\n", "", page)
 
 
-def switch_for(page, lang):
+def switch_for(page, lang, pages=PAGES):
     """The RU / EN buttons become links to the two pages."""
     def link(m):
         l = m.group(1)
         here = ' aria-current="page"' if l == lang else ""
-        return (f'<a id="lang-{l}" data-lang="{l}" href="{PAGES[l]}" hreflang="{l}" lang="{l}"'
+        return (f'<a id="lang-{l}" data-lang="{l}" href="{pages[l]}" hreflang="{l}" lang="{l}"'
                 f' title="{LANGS[l]}"{here}>{l.upper()}</a>')
     page, n = re.subn(r'<button type="button" id="lang-(\w+)" data-lang="\1" aria-pressed="\w+">\w+</button>', link, page)
     if n != 2:
@@ -94,6 +98,8 @@ VERSION = re.search(r'data-release="version">([^<]*)<', source).group(1)
 APK = re.search(r'<a\b[^>]*\bdata-release="href"[^>]*\bhref="([^"]*)"', source).group(1)
 
 
+# The main page's styles, for the guides, which sit at other depths and so take the fonts from the root
+MAIN_STYLE = re.search(r"<style>.*?</style>", source, re.S).group().replace("url(fonts/", "url(/fonts/")
 MAC = (re.search(r'<a\b[^>]*\bdata-release="mac-href"[^>]*\bhref="([^"]*)"', source) or [None, None])[1]
 MAC_ABOUT = {
     "en": "The Mac side of Sash. It streams the Mac’s windows to Sash on Android.",
@@ -183,23 +189,69 @@ def structured_data(page, lang):
     return page.replace("</head>", f'<script type="application/ld+json">\n{script}\n</script>\n</head>', 1)
 
 
-def build(lang):
+def guide_data(page, lang, pages):
+    """A guide's own structured data: the page, its place under the main page and its questions."""
+    url = ORIGIN + pages[lang]
+    name = text_of(re.search(r"<h1\b[^>]*>(.*?)</h1>", page, re.S).group(1))
+    description = html.unescape(re.search(r'<meta name="description" content="([^"]*)"', page).group(1))
+    data = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": url,
+                "url": url,
+                "name": name,
+                "description": description,
+                "inLanguage": lang,
+                "isPartOf": {"@id": ORIGIN + "/#website"},
+                "about": {"@id": ORIGIN + "/#android"},
+                "breadcrumb": {"@id": url + "#breadcrumb"},
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": url + "#breadcrumb",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Sash", "item": ORIGIN + PAGES[lang]},
+                    {"@type": "ListItem", "position": 2, "name": name, "item": url},
+                ],
+            },
+            {
+                "@type": "FAQPage",
+                "@id": url + "#faq",
+                "url": url,
+                "inLanguage": lang,
+                "mainEntity": faq_of(page),
+            },
+        ],
+    }
+    script = json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/")
+    return page.replace("</head>", f'<script type="application/ld+json">\n{script}\n</script>\n</head>', 1)
+
+
+def build(lang, name="index.html", pages=PAGES):
     other = "en" if lang == "ru" else "ru"
-    page = strip_lang(source, other)
+    guide = name != "index.html"
+    page = (src / name).read_text(encoding="utf-8") if guide else source
+    if guide:
+        if "<!-- styles of index.html -->" not in page:
+            sys.exit(f"{name}: no <!-- styles of index.html --> marker")
+        page = page.replace("<!-- styles of index.html -->", MAIN_STYLE, 1)
+    page = strip_lang(page, other)
     page = head_for(page, lang)
-    page = switch_for(page, lang)
+    page = switch_for(page, lang, pages)
     # aria-label="Theme / Тема": English first, Russian after the slash
     page = re.sub(r'aria-label="([^"/]+) / ([^"/]+)"',
                   lambda m: f'aria-label="{m.group(1) if lang == "en" else m.group(2)}"', page)
     page = page.replace('<html lang="ru">', f'<html lang="{lang}" data-lang="{lang}" data-page-lang="{lang}">', 1)
-    page = structured_data(page, lang)
-    depth = PAGES[lang].count("/") - 1
+    page = guide_data(page, lang, pages) if guide else structured_data(page, lang)
+    depth = pages[lang].count("/") - 1
     if depth:
         # /ru/ sits a folder down: its relative links to fonts and icons go up one
         up = "../" * depth
         page = re.sub(r'\b(href|src)="(?!#|[a-z]+:|/)', rf'\1="{up}', page)
         page = page.replace("url(fonts/", f"url({up}fonts/")
-    path = out / PAGES[lang].strip("/") / "index.html"
+    path = out / pages[lang].strip("/") / "index.html"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(page, encoding="utf-8")
     print(f"{lang}: {path} ({len(page) // 1024} KB)")
@@ -207,6 +259,9 @@ def build(lang):
 
 for lang in PAGES:
     build(lang)
+for name, pages in GUIDES.items():
+    for lang in pages:
+        build(lang, name, pages)
 
 # The QR code's target: the download starts by itself, the page says what comes next.
 (out / "get").mkdir(exist_ok=True)
@@ -293,18 +348,26 @@ html:not([lang="ru"]) .ru, html[lang="ru"] .en {{ display: none; }}
 </html>
 """, encoding="utf-8")
 
-# When the page last changed, for the sitemap: the newest commit touching the site (CI's shallow clone gives HEAD's date)
-try:
-    LASTMOD = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(src), __file__],
+def lastmod(*paths):
+    """When a page last changed, for the sitemap: the newest commit touching it (CI's shallow clone gives HEAD's date)."""
+    try:
+        day = subprocess.run(["git", "log", "-1", "--format=%cs", "--", *map(str, paths), __file__],
                              capture_output=True, text=True, check=True).stdout.strip()
-except (OSError, subprocess.CalledProcessError):
-    LASTMOD = ""
-LASTMOD = LASTMOD or datetime.date.today().isoformat()
+    except (OSError, subprocess.CalledProcessError):
+        day = ""
+    return day or datetime.date.today().isoformat()
 
-alternates = "".join(
-    f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{ORIGIN}{p}"/>' for l, p in PAGES.items()
-) + f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{ORIGIN}{PAGES["en"]}"/>'
-urls = "".join(f"\n  <url>\n    <loc>{ORIGIN}{p}</loc>\n    <lastmod>{LASTMOD}</lastmod>{alternates}\n  </url>" for p in PAGES.values())
+
+def urls_of(pages, day):
+    alternates = "".join(
+        f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{ORIGIN}{p}"/>' for l, p in pages.items()
+    ) + f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{ORIGIN}{pages["en"]}"/>'
+    return "".join(f"\n  <url>\n    <loc>{ORIGIN}{p}</loc>\n    <lastmod>{day}</lastmod>{alternates}\n  </url>" for p in pages.values())
+
+
+# The main page counts the whole site folder, a guide its own source and the main page's styles
+urls = urls_of(PAGES, lastmod(src)) + "".join(
+    urls_of(pages, lastmod(src / name, src / "index.html")) for name, pages in GUIDES.items())
 (out / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n'
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'

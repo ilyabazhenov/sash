@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- The English page is built from this one by tools/build-site.py, as the main page is: data-en holds each value
+     for the English page, and the main page's styles go in place of the marker below. Links start at the site's
+     root: the page sits at /claude-code/ and /ru/claude-code/. -->
+<title data-en="Claude Code from your phone: your Mac’s session on Android · Sash">Claude Code с телефона: сессия на Mac под рукой с Android · Sash</title>
+<meta name="description" content="Claude Code работает на Mac, а вы следите за ним и отвечаете с Android-телефона: окно терминала, esc, ⇧⇥ и стрелки, голосовой ввод с Return, доступ вне дома. Бесплатно, без аккаунта." data-en="Claude Code runs on your Mac while you watch it and answer from an Android phone: the terminal window, esc, ⇧⇥ and the arrows, voice input with Return, access away from home. Free, no account.">
+<link rel="canonical" href="https://usesash.app/ru/claude-code/" data-en="https://usesash.app/claude-code/">
+<link rel="alternate" hreflang="ru" href="https://usesash.app/ru/claude-code/">
+<link rel="alternate" hreflang="en" href="https://usesash.app/claude-code/">
+<link rel="alternate" hreflang="x-default" href="https://usesash.app/claude-code/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#15181D">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sash">
+<meta property="og:url" content="https://usesash.app/ru/claude-code/" data-en="https://usesash.app/claude-code/">
+<meta property="og:title" content="Claude Code с телефона" data-en="Claude Code from your phone">
+<meta property="og:description" content="Агент работает на Mac, а вы следите за ним и отвечаете с Android: терминал, клавиши и голос." data-en="The agent runs on your Mac while you watch it and answer from Android: the terminal, the keys and your voice.">
+<meta property="og:image" content="https://usesash.app/og.png" data-en="https://usesash.app/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sash: окна вашего Mac на Android" data-en="Sash: your Mac’s windows on Android">
+<meta property="og:locale" content="ru_RU" data-en="en_US">
+<meta property="og:locale:alternate" content="en_US" data-en="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/golos-text-400-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin data-only="ru">
+<link rel="preload" href="/fonts/golos-text-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- styles of index.html -->
+<style>
+/* This page's own parts, on top of the main page's styles. */
+.top .wrap > span { display: contents; }
+.cc-hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: var(--gut); align-items: center; padding-block: clamp(40px, 8vh, 96px); }
+.cc-hero .copy { display: grid; gap: 22px; align-content: start; }
+.cc-hero h1 { font-size: clamp(2.3rem, .6rem + 4.6vw, 4.75rem); }
+.cc-hero h1 .l2 { color: var(--ink); }
+.cc-hero h1 .l2 em::after { transform: scaleX(1); opacity: .45; }
+
+/* The phone: Sash showing the Mac's terminal, with its key row and the voice bar. */
+.cc-phone { justify-self: center; width: min(100%, 380px); padding: 12px; border-radius: 40px; background: var(--dev); box-shadow: 0 0 0 1.5px var(--dev-edge), 0 40px 80px -40px var(--shadow); }
+.cc-screen { border-radius: 30px; overflow: hidden; background: var(--dev-screen); display: grid; }
+.cc-bar { display: flex; align-items: center; gap: 8px; padding: 14px 16px 10px; font-size: .8125rem; color: var(--dev-dim); }
+.cc-bar b { color: var(--dev-text); font-weight: 600; }
+.cc-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dev-ok); }
+.cc-bar .aa { margin-left: auto; font: 500 .75rem/1 var(--f-mono); padding: 6px 8px; border-radius: 8px; background: var(--dev-chip); color: var(--dev-text); }
+.cc-term { margin: 0 8px; border-radius: 10px; overflow: hidden; background: var(--mac-term); color: var(--mac-term-text); }
+.cc-term .titlebar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; background: #23262E; font-size: 11px; color: #8B93A3; }
+.cc-term .titlebar i { width: 10px; height: 10px; border-radius: 50%; background: var(--tl-red); }
+.cc-term .titlebar i:nth-child(2) { background: var(--tl-yellow); }
+.cc-term .titlebar i:nth-child(3) { background: var(--tl-green); margin-right: 6px; }
+.cc-term pre { margin: 0; padding: 12px 12px 14px; font: 400 .75rem/1.55 var(--f-mono); white-space: pre-wrap; word-break: break-word; }
+.cc-term .ok { color: var(--mac-term-ok); }
+.cc-term .dim { color: #7D8597; }
+.cc-term .ask { display: block; margin-top: 10px; padding: 8px 10px; border: 1px solid #3A4152; border-radius: 8px; }
+.cc-term .pick { color: var(--signal); }
+.cc-keys { display: grid; grid-template-columns: 1.2fr repeat(9, 1fr); gap: 4px; padding: 10px 8px 6px; background: var(--dev-bar); margin-top: 10px; }
+.cc-keys span { display: grid; place-items: center; height: 34px; border-radius: 8px; background: var(--dev-chip); color: var(--dev-text); font: 500 .8125rem/1 var(--f-mono); }
+.cc-keys span.lit { background: var(--sash); color: var(--on-sash); box-shadow: inset 0 2px 0 var(--sash-lit); }
+.cc-voice { display: flex; align-items: center; gap: 8px; padding: 6px 8px 14px; background: var(--dev-bar); }
+.cc-voice .vc-mic { width: 34px; height: 34px; }
+.cc-voice .vc-mic i { left: 13px; top: 8px; }
+.cc-voice p { flex: 1; min-width: 0; font-size: .8125rem; line-height: 1.35; color: var(--dev-text); }
+.cc-voice p em { font-style: normal; color: var(--faint); }
+.cc-voice .vk { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--raised); color: var(--dev-dim); font-size: .875rem; }
+.cc-voice .vk.go { color: var(--signal); }
+
+/* Six panes in rows of three. */
+.cc .more article:nth-child(n) { padding: 32px; }
+.cc .more article:nth-child(3n+1) { padding-left: 0; }
+.cc .more article:nth-child(3n) { padding-right: 0; }
+.cc .more-pic code { font: 500 .8125rem/1.4 var(--f-mono); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { padding: 6px 9px; border-radius: 8px; background: var(--paper); font: 500 .8125rem/1 var(--f-mono); color: var(--ink); }
+.chips span.on { background: var(--sash); color: var(--on-sash); box-shadow: inset 0 2px 0 var(--sash-lit); }
+.chips span small { color: var(--muted); font-size: .75rem; margin-left: 4px; }
+.chips span.on small { color: var(--on-sash); opacity: .7; }
+.pic-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; border-radius: 10px; background: var(--paper); }
+.pic-row span { color: var(--muted); font: 500 .75rem/1.3 var(--f-mono); }
+
+.cc-note { margin-top: 28px; color: var(--muted); font-size: .9375rem; }
+@media (max-width: 860px) {
+  .cc-hero { grid-template-columns: minmax(0, 1fr); }
+  .cc .more article:nth-child(n) { padding: 28px 0 32px; }
+}
+</style>
+</head>
+<body class="cc">
+
+<header class="top">
+  <div class="wrap">
+    <span class="ru"><a class="brand" href="/ru/" aria-label="Sash: на главную">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="brand-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#333C7A"/><stop offset="1" stop-color="#121636"/></linearGradient></defs><rect width="100" height="100" fill="url(#brand-sky)"/><g transform="translate(50 50) scale(0.94) translate(-50 -50) translate(0 -5)"><path d="M15 47.5L45 26.5V71.5H15Z" fill="#FFBE3D"/><path d="M45 26.5L63.69 39.583A8 8 0 0 0 62 44.5V71.5H45Z" fill="#F5A30F"/><path d="M13 75.5H62V83.5H13A4 4 0 0 1 13 75.5Z" fill="#C9760A"/><path d="M13 75.5H62V79H9.031A4 4 0 0 1 13 75.5Z" fill="#F09A1C"/><path fill-rule="evenodd" d="M70 39.5H86A5 5 0 0 1 91 44.5V78.5A5 5 0 0 1 86 83.5H70A5 5 0 0 1 65 78.5V44.5A5 5 0 0 1 70 39.5ZM73 43.5H83A2 2 0 0 1 83 47.5H73A2 2 0 0 1 73 43.5Z" fill="#FFEDC2"/><path d="M70 50H86A2.5 2.5 0 0 1 88.5 52.5V78A2.5 2.5 0 0 1 86 80.5H70A2.5 2.5 0 0 1 67.5 78V52.5A2.5 2.5 0 0 1 70 50Z" fill="#F7D488"/></g></svg>
+      Sash
+    </a></span><span class="en"><a class="brand" href="/" aria-label="Sash home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="brand-sky-en" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#333C7A"/><stop offset="1" stop-color="#121636"/></linearGradient></defs><rect width="100" height="100" fill="url(#brand-sky-en)"/><g transform="translate(50 50) scale(0.94) translate(-50 -50) translate(0 -5)"><path d="M15 47.5L45 26.5V71.5H15Z" fill="#FFBE3D"/><path d="M45 26.5L63.69 39.583A8 8 0 0 0 62 44.5V71.5H45Z" fill="#F5A30F"/><path d="M13 75.5H62V83.5H13A4 4 0 0 1 13 75.5Z" fill="#C9760A"/><path d="M13 75.5H62V79H9.031A4 4 0 0 1 13 75.5Z" fill="#F09A1C"/><path fill-rule="evenodd" d="M70 39.5H86A5 5 0 0 1 91 44.5V78.5A5 5 0 0 1 86 83.5H70A5 5 0 0 1 65 78.5V44.5A5 5 0 0 1 70 39.5ZM73 43.5H83A2 2 0 0 1 83 47.5H73A2 2 0 0 1 73 43.5Z" fill="#FFEDC2"/><path d="M70 50H86A2.5 2.5 0 0 1 88.5 52.5V78A2.5 2.5 0 0 1 86 80.5H70A2.5 2.5 0 0 1 67.5 78V52.5A2.5 2.5 0 0 1 70 50Z" fill="#F7D488"/></g></svg>
+      Sash
+    </a></span>
+    <nav class="sections" aria-label="Разделы / Sections">
+      <a href="#how"><span class="ru">Как это выглядит</span><span class="en">How it works</span></a>
+      <a href="#start"><span class="ru">Как начать</span><span class="en">Getting started</span></a>
+      <a href="#faq"><span class="ru">Вопросы</span><span class="en">Questions</span></a>
+    </nav>
+    <div class="top-end">
+      <div class="seg lang-seg" role="group" aria-label="Language / Язык">
+        <button type="button" id="lang-ru" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <span class="ru"><a class="btn primary" href="/ru/#start">Скачать</a></span><span class="en"><a class="btn primary" href="/#start">Download</a></span>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="wrap cc-hero rail-b" aria-labelledby="h1">
+    <div class="copy">
+      <p class="eyebrow"><span class="ru">Sash для агентов на Mac</span><span class="en">Sash for agents on your Mac</span></p>
+      <h1 id="h1"><span class="ru">Claude Code</span><span class="en">Claude Code</span> <span class="l2"><span class="ru">с <em>телефона</em></span><span class="en">from your <em>phone</em></span></span></h1>
+      <p class="lede"><span class="ru">Агент работает на Mac, а вы на кухне, на диване или в дороге. Sash показывает на Android-телефоне то самое окно терминала: посмотреть, что сделано, разрешить следующий шаг или надиктовать новую задачу можно за полминуты.</span><span class="en">The agent works on your Mac while you’re in the kitchen, on the sofa or out. Sash shows that very terminal window on your Android phone: see what’s done, allow the next step or dictate a new task in half a minute.</span></p>
+      <div class="ctas">
+        <span class="ru"><a class="btn primary" href="/ru/#start">Скачать Sash</a></span><span class="en"><a class="btn primary" href="/#start">Get Sash</a></span>
+        <a class="btn" href="#how"><span class="ru">Как это выглядит</span><span class="en">How it works</span></a>
+      </div>
+      <p class="lede" style="font-size: .9375rem"><span class="ru">Бесплатно, без аккаунта. Android 10 и новее, Mac на Apple silicon.</span><span class="en">Free, no account. Android 10 or later, a Mac with Apple silicon.</span></p>
+    </div>
+
+    <div class="cc-phone" aria-hidden="true">
+      <div class="cc-screen">
+        <div class="cc-bar"><span class="dot"></span><b>MacBook Pro</b> · <span>Terminal</span><span class="aa">Aa 1.25×</span></div>
+        <div class="cc-term">
+          <div class="titlebar"><i></i><i></i><i></i>~/Projects/app — claude</div>
+<pre><span class="ok">●</span> Bash(npm test)
+  <span class="dim">⎿ 41 passed, 1 failed</span>
+<span class="ok">●</span> <span class="ru">Чиню тест в auth.test.ts…</span><span class="en">Fixing the test in auth.test.ts…</span>
+<span class="ok">●</span> Update(src/auth.ts)
+<span class="ask">Do you want to make this edit?
+<span class="pick">❯ 1. Yes</span>
+  2. Yes, allow all edits this session
+  3. No, and tell Claude what to do</span></pre>
+        </div>
+        <div class="cc-keys"><span>esc</span><span>⇥</span><span>⌃</span><span>⌥</span><span>⌘</span><span class="lit">⇧</span><span>←</span><span>↓</span><span>↑</span><span>→</span></div>
+        <div class="cc-voice">
+          <span class="vc-mic"><i></i></span>
+          <p><span class="ru">Теперь прогони тесты <em>ещё раз</em></span><span class="en">Now run the tests <em>again</em></span></p>
+          <span class="vk">✕</span><span class="vk go">⏎</span><span class="vk">✓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" id="how" aria-labelledby="how-h" style="border-top: 0">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span class="ru">Как это выглядит</span><span class="en">How it works</span></p>
+        <h2 id="how-h"><span class="ru">Терминал, клавиши и голос: всё, чем вы отвечаете агенту</span><span class="en">The terminal, the keys and your voice: all you answer an agent with</span></h2>
+        <p><span class="ru">Sash ничего не меняет в Claude Code: он показывает экран Mac и передаёт на Mac ваш ввод. Поэтому так же работают Codex CLI, Gemini CLI, Aider и любой агент в терминале или редакторе.</span><span class="en">Sash changes nothing in Claude Code: it shows the Mac’s screen and passes your input to the Mac. So Codex CLI, Gemini CLI, Aider and any agent in a terminal or an editor work the same way.</span></p>
+      </div>
+      <div class="more">
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="chips"><span class="on">Terminal <small>claude</small></span><span>Safari</span><span>Xcode</span><span>Cursor</span></div>
+            <div class="chips"><span>Aa 1×</span><span class="on">Aa 1.25×</span><span>Aa 1.5×</span></div>
+          </div>
+          <h3><span class="ru">Окно терминала на весь экран</span><span class="en">The terminal window, full screen</span></h3>
+          <p><span class="ru">Выберите в ленте окон Terminal, iTerm или Ghostty: Sash подгонит окно под экран телефона. Aa делает текст крупнее, если строки мелкие.</span><span class="en">Pick Terminal, iTerm or Ghostty in the window bar: Sash fits the window to your phone’s screen. Aa makes the text larger when lines are small.</span></p>
+          <p class="more-where"><span class="ru">Лента окон · Aa</span><span class="en">Window bar · Aa</span></p>
+        </article>
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="pic-row"><code>esc</code><span><span class="ru">прервать агента</span><span class="en">interrupt the agent</span></span></div>
+            <div class="pic-row"><code>⇧ ⇥</code><span><span class="ru">сменить режим</span><span class="en">switch the mode</span></span></div>
+            <div class="pic-row"><code>↑ ↓ ⏎</code><span><span class="ru">выбрать ответ</span><span class="en">pick an answer</span></span></div>
+          </div>
+          <h3><span class="ru">Клавиши, которых нет на телефоне</span><span class="en">The keys your phone doesn’t have</span></h3>
+          <p><span class="ru">Над клавиатурой — esc, tab, ⌃ ⌥ ⌘ ⇧ и стрелки. Модификатор фиксируется касанием, так что ⇧⇥, ⌃C и ⌘K набираются по одной клавише.</span><span class="en">Above the keyboard: esc, tab, ⌃ ⌥ ⌘ ⇧ and the arrows. A tap latches a modifier, so ⇧⇥, ⌃C and ⌘K go one key at a time.</span></p>
+          <p class="more-where"><span class="ru">Ряд клавиш над клавиатурой</span><span class="en">The key row above the keyboard</span></p>
+        </article>
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="vc">
+              <span class="vc-mic"><i></i></span>
+              <p class="vc-said"><span class="ru">Добавь тест на пустой пароль <em>и запусти</em></span><span class="en">Add a test for an empty password <em>and run it</em></span></p>
+              <span class="vc-ok">⏎</span>
+            </div>
+            <p class="vc-hint"><span class="ru">⏎ — отправить и слушать дальше</span><span class="en">⏎ sends it and keeps listening</span></p>
+          </div>
+          <h3><span class="ru">Задача голосом</span><span class="en">Tasks by voice</span></h3>
+          <p><span class="ru">Нажмите микрофон и говорите: телефон печатает фразу в терминал. Кнопка ⏎ дописывает фразу, нажимает Return и слушает дальше, так что следующую задачу можно надиктовать сразу.</span><span class="en">Tap the mic and speak: your phone types the phrase into the terminal. The ⏎ button finishes the phrase, presses Return and keeps listening, so you can dictate the next task right away.</span></p>
+          <p class="more-where"><span class="ru">Микрофон в панели Sash</span><span class="en">The mic in Sash’s bar</span></p>
+        </article>
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="pic-row"><code>TypeError: token is undefined</code><span><span class="ru">→ телефон</span><span class="en">→ phone</span></span></div>
+            <div class="pic-row"><code><span class="ru">длинный промпт</span><span class="en">a long prompt</span></code><span><span class="ru">→ Mac</span><span class="en">→ Mac</span></span></div>
+          </div>
+          <h3><span class="ru">Буфер обмена в обе стороны</span><span class="en">The clipboard both ways</span></h3>
+          <p><span class="ru">Скопируйте ошибку в терминале, и она окажется в буфере телефона: отправить коллеге или поискать. Длинный промпт из заметок отправляется на Mac через «Вставить на Mac».</span><span class="en">Copy an error in the terminal and it’s on your phone’s clipboard, ready to send or search. A long prompt from your notes goes to the Mac with Paste on Mac.</span></p>
+          <p class="more-where"><span class="ru">Вставить на Mac</span><span class="en">Paste on Mac</span></p>
+        </article>
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="chips"><span>localhost:3000</span><span>Simulator</span><span>git diff</span></div>
+            <div class="chips"><span class="on"><span class="ru">весь рабочий стол</span><span class="en">the whole desktop</span></span></div>
+          </div>
+          <h3><span class="ru">Весь Mac, а не только чат</span><span class="en">The whole Mac, not just the chat</span></h3>
+          <p><span class="ru">Агент сказал «готово» — проверьте сами: откройте страницу в браузере, приложение в симуляторе или изменения в редакторе. Это те же окна, что на экране Mac.</span><span class="en">The agent says it’s done? Check for yourself: open the page in the browser, the app in the simulator or the changes in your editor. They’re the same windows as on the Mac’s screen.</span></p>
+          <p class="more-where"><span class="ru">Лента окон · Рабочий стол</span><span class="en">Window bar · Desktop</span></p>
+        </article>
+        <article>
+          <div class="more-pic" aria-hidden="true">
+            <div class="pic-row"><code>relay Sash</code><span>TLS 1.3</span></div>
+            <div class="pic-row"><code><span class="ru">Mac заблокирован</span><span class="en">Mac locked</span></code><span><span class="ru">пароль с телефона</span><span class="en">password from the phone</span></span></div>
+          </div>
+          <h3><span class="ru">Не только дома</span><span class="en">Not only at home</span></h3>
+          <p><span class="ru">Через relay Sash телефон доходит до Mac по мобильной сети, без VPN и настройки роутера. Если Mac заблокирован, видно экран блокировки, а пароль вводится с телефона.</span><span class="en">Through Sash’s relay the phone reaches the Mac over mobile data, with no VPN and no router settings. If the Mac is locked, you see its lock screen and type the password from the phone.</span></p>
+          <p class="more-where"><span class="ru">На Mac: Удалённый доступ</span><span class="en">On the Mac: Remote Access</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene" id="start" aria-labelledby="start-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span class="ru">Как начать</span><span class="en">Getting started</span></p>
+        <h2 id="start-h"><span class="ru">Пять минут один раз — дальше Mac в кармане</span><span class="en">Five minutes once, then your Mac is in your pocket</span></h2>
+        <p><span class="ru">Ставить что-то в Claude Code и менять его настройки не нужно.</span><span class="en">Nothing to install in Claude Code, no settings to change.</span></p>
+      </div>
+      <ol class="steps4">
+        <li><span class="nn">1</span><b>Mac</b><p><span class="ru">Поставьте Sash для Mac и выдайте разрешения Screen Recording и Accessibility.</span><span class="en">Install Sash for Mac and grant Screen Recording and Accessibility.</span></p></li>
+        <li><span class="nn">2</span><b><span class="ru">Телефон</span><span class="en">Phone</span></b><p><span class="ru">Установите APK на Android и откройте Sash в той же Wi‑Fi сети.</span><span class="en">Install the APK on Android and open Sash on the same Wi‑Fi network.</span></p></li>
+        <li><span class="nn">3</span><b><span class="ru">Сопряжение</span><span class="en">Pairing</span></b><p><span class="ru">Коснитесь своего Mac и отсканируйте QR-код с его экрана.</span><span class="en">Tap your Mac and scan the QR code on its screen.</span></p></li>
+        <li class="opt"><span class="nn">4</span><b><span class="ru">Вне дома</span><span class="en">Away from home</span><em><span class="ru">по желанию</span><span class="en">optional</span></em></b><p><span class="ru">Включите на Mac «Удалённый доступ» и «Подключаться через relay Sash».</span><span class="en">On the Mac, turn on Remote Access and “Connect through Sash relays”.</span></p></li>
+      </ol>
+      <p class="cc-note"><span class="ru">Ссылки на скачивание, QR-код для телефона и подробности установки —</span><span class="en">Download links, a QR code for your phone and install details are</span> <span class="ru"><a href="/ru/#start">на главной странице</a>.</span><span class="en"><a href="/#start">on the main page</a>.</span></p>
+    </div>
+  </section>
+
+  <section class="scene" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-grid">
+      <div class="head">
+        <p class="eyebrow"><span class="ru">Вопросы</span><span class="en">Questions</span></p>
+        <h2 id="faq-h"><span class="ru">Claude Code с телефона: коротко о главном</span><span class="en">Claude Code from your phone: the short answers</span></h2>
+        <p><span class="ru">Чего ещё не хватает, спросите в</span><span class="en">Anything else, ask in the</span> <a href="https://github.com/ilyabazhenov/sash/issues" target="_blank" rel="noopener"><span class="ru">issues на GitHub</span><span class="en">GitHub issues</span></a>.</p>
+      </div>
+      <div class="faq">
+        <details open><summary><span class="ru">Чем это отличается от Remote Control в Claude Code?</span><span class="en">How is it different from Claude Code’s Remote Control?</span></summary><p><span class="ru">Remote Control переносит в приложение Claude разговор с агентом. Sash показывает весь Mac: тот же терминал, а рядом браузер, симулятор, редактор и другие агенты. Одно другому не мешает, ими можно пользоваться вместе.</span><span class="en">Remote Control brings your conversation with the agent into the Claude app. Sash shows the whole Mac: the same terminal, and next to it the browser, the simulator, your editor and other agents. They don’t get in each other’s way; you can use both.</span></p></details>
+        <details><summary><span class="ru">Нужно ли что-то настраивать в Claude Code?</span><span class="en">Do I need to set anything up in Claude Code?</span></summary><p><span class="ru">Нет. Sash не трогает Claude Code и его настройки: он показывает экран Mac и передаёт ввод, как будто вы сидите за клавиатурой.</span><span class="en">No. Sash doesn’t touch Claude Code or its settings: it shows the Mac’s screen and passes your input on, as if you were at the keyboard.</span></p></details>
+        <details><summary><span class="ru">Агент остановится, если телефон отключится?</span><span class="en">Does the agent stop if my phone disconnects?</span></summary><p><span class="ru">Нет. Агент работает на Mac, а Sash только показывает его окно. Обрыв связи, погашенный экран или закрытое приложение на телефоне на агента не влияют: откроете Sash снова — и увидите, что он успел.</span><span class="en">No. The agent runs on the Mac; Sash only shows its window. A dropped connection, a dark screen or a closed app on the phone don’t affect the agent: open Sash again and see what it has done.</span></p></details>
+        <details><summary><span class="ru">Сообщит ли Sash, что агент ждёт ответа?</span><span class="en">Will Sash tell me when the agent is waiting?</span></summary><p><span class="ru">Пока нет: загляните в окно терминала в Sash. Уведомлений от Mac в приложении ещё нет.</span><span class="en">Not yet: look at the terminal window in Sash. The app doesn’t get notifications from the Mac yet.</span></p></details>
+        <details><summary><span class="ru">Работают ли другие агенты?</span><span class="en">Do other agents work?</span></summary><p><span class="ru">Да. Sash всё равно, что запущено на Mac: Codex CLI, Gemini CLI, Aider, агент в Cursor или Xcode — любое окно видно и управляется так же.</span><span class="en">Yes. Sash doesn’t care what runs on the Mac: Codex CLI, Gemini CLI, Aider, the agent in Cursor or Xcode — any window shows and is driven the same way.</span></p></details>
+        <details><summary><span class="ru">Есть ли версия для iPhone?</span><span class="en">Is there a version for iPhone?</span></summary><p><span class="ru">Скоро: Sash для iPhone и iPad готовится к выходу в App Store. Пока доступна версия для Android.</span><span class="en">Soon: Sash for iPhone and iPad is on its way to the App Store. For now, the Android version is available.</span></p></details>
+        <details><summary><span class="ru">Сколько это стоит?</span><span class="en">What does it cost?</span></summary><p><span class="ru">Sash для Android и Sash для Mac бесплатны. Claude Code работает по вашей подписке или ключу Anthropic, как и без Sash.</span><span class="en">Sash for Android and Sash for Mac are free. Claude Code runs on your own Anthropic plan or key, as it does without Sash.</span></p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-meta">
+    <p><span class="ru">Claude и Claude Code — товарные знаки Anthropic. Sash не связан с Anthropic.</span><span class="en">Claude and Claude Code are trademarks of Anthropic. Sash is not affiliated with Anthropic.</span></p>
+    <p><span class="ru"><a href="/ru/">Sash</a> — удалённый доступ к Mac с Android. <a href="/ru/releases/">Что нового</a></span><span class="en"><a href="/">Sash</a> is remote access to your Mac from Android. <a href="/releases/">What’s new</a></span></p>
+  </div>
+  <div class="wordmark" aria-hidden="true">Sash</div>
+  <div class="foot-sill"></div>
+</footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3d34efb0e9bb47b089dd6f0ef24abeac"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
